@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Seed: Lattice / contraction fixed-point</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:720px;margin:1rem auto;padding:0 1rem;line-height:1.4}
+.banner{background:#e7f1ff;border:1px solid #9eb7d9;padding:.5rem;border-radius:6px}
+.card{border:1px solid #ccc;border-radius:8px;padding:.75rem;margin:.75rem 0}
+label{display:block;margin:.35rem 0} input[type=range]{width:100%}
+code{background:#f4f4f4;padding:0 .25rem}
+</style></head><body>
+<h1>Constraint / contraction fixed-point (seed)</h1>
+<p class="banner"><strong>Analogy.</strong> Lattice meet/join and contraction maps illustrate residual→stop. <strong>Not</strong> physical closed timelike curves (CTC). No relativity claims.</p>
+<div class="card">
+<label>Contraction α (0–0.99) <input id="a" type="range" min="0.1" max="0.99" step="0.01" value="0.7"></label>
+<label>Target c <input id="c" type="range" min="-2" max="2" step="0.01" value="1"></label>
+<label>x0 <input id="x0" type="range" min="-2" max="2" step="0.01" value="-1.5"></label>
+<label>ε stop <input id="eps" type="range" min="0.0001" max="0.05" step="0.0001" value="0.001"></label>
+<button id="run">Iterate</button>
+<p>Steps: <code id="steps">—</code> residual: <code id="res">—</code> x*: <code id="xs">—</code></p>
+<canvas id="cv" width="640" height="200" style="width:100%;border:1px solid #ddd"></canvas>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+function run(){
+  const a=+ $('a').value, c=+$('c').value, eps=+$('eps').value;
+  let x=+$('x0').value; const xs=[x];
+  // T(x)= (1-a)*c + a*x  is contraction toward c with rate a
+  let steps=0;
+  for(; steps<200; steps++){
+    const nx=(1-a)*c + a*x; xs.push(nx);
+    if(Math.abs(nx-x)<eps){x=nx; break;}
+    x=nx;
+  }
+  $('steps').textContent=String(steps+1);
+  $('res').textContent=Math.abs(x-c).toFixed(6);
+  $('xs').textContent=x.toFixed(6);
+  const ctx=$('cv').getContext('2d'); ctx.clearRect(0,0,640,200);
+  ctx.strokeStyle='#888'; ctx.beginPath(); ctx.moveTo(0,100); ctx.lineTo(640,100); ctx.stroke();
+  ctx.strokeStyle='#06c'; ctx.beginPath();
+  xs.forEach((v,i)=>{const px=i/(xs.length-1||1)*620+10, py=100-v*40; i?ctx.lineTo(px,py):ctx.moveTo(px,py);});
+  ctx.stroke();
+}
+$('run').onclick=run; ['a','c','x0','eps'].forEach(id=>$ (id).oninput=run); run();
+</script>
+<p><em>Seed only — add lattice meet/join UI and side-by-side patch vs code diagrams in full build.</em></p>
+</body></html>

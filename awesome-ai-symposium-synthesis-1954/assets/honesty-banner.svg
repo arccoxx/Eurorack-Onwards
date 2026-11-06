@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 200" role="img" aria-labelledby="t d">
+<title id="t">Honesty banner</title>
+<desc id="d">The page is a CPU simulation. It is not physical Eurorack, not an FPGA benchmark, and not a universal optimum.</desc>
+<rect width="960" height="200" rx="18" fill="#2a2214"/>
+<text x="32" y="54" fill="#ffb020" font-family="Georgia, serif" font-size="28">What this release refuses to say</text>
+<text x="32" y="100" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="18">No universal optimum. No physical time travel. No unmeasured silicon speed.</text>
+<text x="32" y="136" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="18">Solomonoff's full mixture is uncomputable. The toy is finite.</text>
+<text x="32" y="172" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="18">A browser patch is still software on a CPU.</text>
+</svg>

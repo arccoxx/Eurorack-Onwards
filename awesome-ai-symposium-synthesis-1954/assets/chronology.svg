@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" role="img" aria-labelledby="t d">
+<title id="t">Chronology correction</title>
+<desc id="d">The folder name says 1954. The Dartmouth proposal PDF is dated August 31, 1955. The workshop was in summer 1956.</desc>
+<rect width="960" height="280" rx="18" fill="#101620"/>
+<text x="32" y="46" fill="#ffb020" font-family="Georgia, serif" font-size="28">Brand label 1954 is not the year</text>
+<g font-family="ui-sans-serif, sans-serif" font-size="18" fill="#f2f6ff">
+<rect x="32" y="78" width="280" height="150" rx="12" fill="#1a2433"/>
+<text x="52" y="116">Folder name</text>
+<text x="52" y="156" fill="#ffb020" font-size="34" font-family="Georgia, serif">1954</text>
+<text x="52" y="196" fill="#c5d0e0" font-size="16">a community label</text>
+<rect x="340" y="78" width="280" height="150" rx="12" fill="#1a2433"/>
+<text x="360" y="116">Proposal date on the PDF</text>
+<text x="360" y="156" fill="#5ee0d0" font-size="34" font-family="Georgia, serif">1955</text>
+<text x="360" y="196" fill="#c5d0e0" font-size="16">August 31, 1955</text>
+<rect x="648" y="78" width="280" height="150" rx="12" fill="#1a2433"/>
+<text x="668" y="116">Workshop</text>
+<text x="668" y="156" fill="#9ad0ff" font-size="34" font-family="Georgia, serif">1956</text>
+<text x="668" y="196" fill="#c5d0e0" font-size="16">summer, Dartmouth</text>
+</g>
+</svg>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Eurorack-Onwards</title>
+<link rel="canonical" href="awesome-ai-symposium-synthesis-1954/"/>
+<style>
+body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 2rem auto; max-width: 40rem; line-height: 1.45; background: #10141c; color: #f2f6ff; }
+a { color: #5ee0d0; }
+</style>
+</head>
+<body>
+<h1>Eurorack-Onwards</h1>
+<p>Interactive symposium demos (proposal 1955, workshop 1956):</p>
+<p><a href="awesome-ai-symposium-synthesis-1954/">Open the demos</a></p>
+<script>
+const params = new URLSearchParams(location.search);
+if (params.get("demo") || params.get("preset") || params.get("doc") || params.get("bench")) {
+  location.replace("awesome-ai-symposium-synthesis-1954/" + location.search + location.hash);
+}
+</script>
+</body>
+</html>

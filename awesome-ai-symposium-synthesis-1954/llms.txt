@@ -1,0 +1,20 @@
+Symposium synthesis demos. Static files. No API key. No network calls in the core.
+
+Propose JSON only. Validate before running.
+
+node implementations/cli.mjs validate proposal.json
+python3 implementations/signal_core.py validate proposal.json
+node implementations/cli.mjs run proposal.json
+python3 implementations/signal_core.py run proposal.json
+
+Kinds: mixer, lattice, solomonoff, adapt, bench, frontier.
+Forbidden keys: eval, function, script, code, constructor, prototype, __proto__.
+Numbers must be finite and inside the caps in implementations/signal-core.js.
+
+Example prompt: Propose kind mixer, x and w length 3, x in [-1,1], w in [-2,2], bias in [-1,1], quantStep 0 or 0.05, voltsPerUnit 5, railVolts 10, shaper tanh. No executable source.
+
+Do not claim a universal optimum, a physical Eurorack or FPGA speedup, physical time travel, or that the finite mixture is Solomonoff's universal distribution. Adaptation can get worse. Read results/claims-verdicts.json.
+
+Longer notes: docs/llms.md
+Schemas: schemas/experiment-input.schema.json schemas/experiment-result.schema.json schemas/patch-graph.schema.json
+Source: implementations/signal-core.js implementations/signal_core.py
