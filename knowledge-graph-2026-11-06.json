@@ -1,0 +1,52 @@
+{
+  "version": "2026-11-06-ctc-round",
+  "updated": "2026-11-06T21:00:00Z",
+  "nodes": [
+    {"id": "godel-1949", "type": "paper", "label": "Gödel 1949 rotating universe CTC", "year": 1949, "venue": "Reviews of Modern Physics (Einstein 70th issue)", "claims": ["CTC through every event in rotating universe"]},
+    {"id": "einstein-reply-1949", "type": "paper", "label": "Einstein reply 1949", "year": 1949, "relation": "courteous but unsettled; hoped nature forbids CTC"},
+    {"id": "deutsch-1991", "type": "paper", "label": "Deutsch 1991 CTC fixed-point", "year": 1991, "equation": "rho_CTC = Tr_CR[U(rho_CR ⊗ rho_CTC)]", "claims": ["every finite evolution has a fixed point", "probabilistic states allowed"]},
+    {"id": "aaronson-watrous-2009", "type": "paper", "label": "Aaronson-Watrous 2009 PSPACE", "year": 2009, "claims": ["CTCs make classical=quantum at PSPACE"]},
+    {"id": "brun-2002", "type": "paper", "label": "Brun 2002 CTC computer NP", "year": 2002, "affiliation": "IAS", "claims": ["CTC computer factors large numbers", "attacks NP-complete via own past"]},
+    {"id": "aaronson-delta2", "type": "result", "label": "Aaronson CTC computability = Δ₂", "claims": ["CTCs give exactly halting-reducible class", "quantum CTCs add nothing"]},
+    {"id": "recirculating-buffer", "type": "eurorack-concept", "label": "Recirculating buffer = CTC analogue", "maps_to": "closed timelike curve", "honest_limit": "stable attractor, not PSPACE, no automatic fixed-point enforcement"},
+    {"id": "cable-timelike", "type": "eurorack-concept", "label": "Cable = continuous timelike path", "maps_to": "continuous timelike curve", "speed": "finite propagation"},
+    {"id": "no-time-wire", "type": "insight", "label": "No time wire needed", "reason": "CV and resampling already are the time coordinate; medium is the clock"},
+    {"id": "toroidal-waveguide-sim", "type": "github-artifact", "label": "Toroidal waveguide sim", "repo": "arccoxx (spin-biased FDTD, closed loop, rotating index)", "nature": "classical wave physics, closest desktop CTC analogue"},
+    {"id": "deleuze-time-image", "type": "art-theory", "label": "Deleuze time-image", "source": "JSTOR sound-art literature", "frame": "time as duration/becoming, rhythm beneath clock-time"},
+    {"id": "redaction-hypothesis", "type": "hypothesis", "label": "Computational reading of synthesis absent from art-historical record", "evidence": "JSTOR gap", "status": "unverified, observational"},
+    {"id": "solomonoff-dispatch", "type": "open-task", "label": "Solomonoff + Dartmouth overnight simulation", "status": "not yet dispatched", "requires": "bot running off-session, results pushed to GitHub (build never saves)"},
+    {"id": "matrix-mixer-neuron", "type": "core-realization", "label": "1 matrix mixer = many neurons", "detail": "each output = weighted sum + nonlinearity; 8x8 = 8 parallel neurons", "neuroscience_link": "single neuron = neural net (dendritic tree = matrix)"},
+    {"id": "lattice-vs-matrix", "type": "core-realization", "label": "Lattice vs matrix", "matrix": "dense linear map", "lattice": "order-theoretic (meet=min, join=max)", "ml_avoidance_reason": "subgradients don't map to tensor cores", "analog_inversion": "min/max are cheap diode circuits"},
+    {"id": "virtual-neurons", "type": "open-question", "label": "Virtual/fake space for scaling", "reason": "can't physically build a billion matrix mixers; wave-function-as-NN research suggests waves map onto any function"},
+    {"id": "spiking-snn", "type": "ml-approach", "label": "Spiking SNNs undervalued", "reason": "digital precision favors memory over dynamics; synth favors dynamics"},
+    {"id": "wave-based-intelligence", "type": "hypothesis", "label": "Wave-based intelligence in Eurorack modules", "evidence": "Eurorack modules embody wave dynamics; brain waves as literal wave intelligence"}
+  ],
+  "edges": [
+    {"from": "godel-1949", "to": "einstein-reply-1949", "type": "same_volume", "relation": "Einstein replied in same issue"},
+    {"from": "deutsch-1991", "to": "aaronson-watrous-2009", "type": "extends", "relation": "Deutsch fixed-point → complexity classification"},
+    {"from": "aaronson-watrous-2009", "to": "aaronson-delta2", "type": "refines", "relation": "PSPACE upper bound refined to Δ₂"},
+    {"from": "brun-2002", "to": "deutsch-1991", "type": "applies", "relation": "Brun applied Deutsch framework at IAS"},
+    {"from": "recirculating-buffer", "to": "deutsch-1991", "type": "physical_analogue", "relation": "feedback loop ≈ CTC but lacks fixed-point enforcement"},
+    {"from": "cable-timelike", "to": "no-time-wire", "type": "supports", "relation": "finite-speed propagation means time is intrinsic to the medium"},
+    {"from": "no-time-wire", "to": "recirculating-buffer", "type": "composes", "relation": "no external clock + recirculation = self-timed CTC analogue"},
+    {"from": "toroidal-waveguide-sim", "to": "recirculating-buffer", "type": "digital_analogue", "relation": "FDTD sim of what a physical loop would do"},
+    {"from": "deleuze-time-image", "to": "redaction-hypothesis", "type": "absence_evidence", "relation": "art theory has duration but not computation"},
+    {"from": "matrix-mixer-neuron", "to": "lattice-vs-matrix", "type": "composes", "relation": "matrix layer + lattice nonlinearity = hybrid substrate"},
+    {"from": "matrix-mixer-neuron", "to": "virtual-neurons", "type": "scales_to", "relation": "physical limit forces virtualization question"},
+    {"from": "spiking-snn", "to": "wave-based-intelligence", "type": "alternative", "relation": "SNN = discrete-time dynamics; wave = continuous dynamics"},
+    {"from": "solomonoff-dispatch", "to": "deutsch-1991", "type": "parallel_thread", "relation": "inductive prior + CTC fixed-point both about self-reference"}
+  ],
+  "open_questions": [
+    "Can fixed-point consistency be enforced by circuit construction rather than attractor dynamics?",
+    "What is the Eurorack community's actual use of time-processing modules beyond delay?",
+    "Where is computational synthesis in peer-reviewed literature outside music tech?",
+    "How do virtual neurons interact spontaneously without physical wiring?",
+    "Is wave-function-as-NN the right scaling substrate for a billion neurons?"
+  ],
+  "update_protocol": {
+    "append_only": true,
+    "hash_chain": "SHA-256 per entry, prior hash referenced",
+    "new_round_adds": "nodes + edges + open_questions, never deletes",
+    "self_audit": "compare ledger counts vs artifacts after each batch"
+  }
+}
