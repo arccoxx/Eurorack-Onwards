@@ -70,7 +70,7 @@ Adaptation: learning rate 0.35 reduced squared error on the fixed sequence (abou
 
 ## Pages and git
 
-Hosting was not configured at the start (`has_pages` false, Pages API 404). The intended project URL shape is `https://arccoxx.github.io/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/`. The handoff must be updated with the real HTTP status after deploy. A branch link is not a live Pages URL.
+Hosting was not configured at the start (`has_pages` false, Pages API 404). The intended project URL shape is `https://arccoxx.github.io/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/`. Two create-Pages calls on 2026-11-06, after this branch was pushed, both returned HTTP 403 `Resource not accessible by integration`: one with the GitHub CLI token, and one with the same credential that pushed the branch. No live Pages URL is claimed. A branch link is not hosting. An admin can set the source to this branch (path `/`) or to `main` after merge, then check HTTP 200 on the demo before calling it live. The URL shape, only after that check, would be `https://arccoxx.github.io/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/`.
 
 ## Gaps still open
 
