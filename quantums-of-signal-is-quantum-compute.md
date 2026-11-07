@@ -1,5 +1,5 @@
 # Quantums of Signal is Quantum-Compute
-## Refined Working Document: Core Theory, Continuous Quantization, Readout/Collapse Interpretation, Notation, and Reinterpreted Concepts
+## Deepened Working Document: Readout/Collapse, Continuum Energy States, Notation, and Reinterpreted Concepts
 
 **Status:** Living notes. Distinguishes a signal-processing interpretation of “quantums of signal” from physical quantum computing. Speculative extensions are explicitly marked. Version: 2026-11-07 (deepened).
 
@@ -39,24 +39,24 @@ These remain classical. A soft quantizer + residual feedback can lock to a discr
 
 In physical quantum mechanics, measuring a state collapses the superposition onto one outcome. Under the signal-quantization framework the analogous process is:
 
-- A continuous circulating voltage (or multi-path interference pattern) exists inside the loop.
-- At the moment of readout (sampling, quantization, or a hard threshold), the continuous trajectory is forced onto one of the discrete levels allowed by \(Q\).
+- A continuous circulating voltage (or multi-path interference pattern) exists inside the loop. The energy state is the voltage trajectory itself; it has no discrete start or end inside the medium.
+- At the moment of readout (sampling, hard quantization, or a threshold), the continuous trajectory is forced onto one of the discrete levels allowed by \(Q\).
 - The “collapse” is the nonlinear snap of the continuous residual onto the grid. There is no physical wave-function; there is a continuous energy trajectory that is discretized by the operator.
 
-Because the underlying path is continuous, the process has no discrete start or end inside the medium—only the readout event imposes a discrete outcome. When time synthesis (variable delay, recirculation, or time-varying parameters) is present, the trajectory that is read out is already the result of a procedural depth of prior interventions. “Intervene” here is literal: each additional stage or modulation inserts itself into the ongoing energy path.
+Because the underlying path is continuous, additional synthesis stages “intervene” (etymologically: come between) by inserting themselves into the ongoing energy path. Each intervention adds procedural depth before the next readout. Time synthesis (variable delay, recirculation, time-varying parameters) means the trajectory that is read is already the result of prior interventions.
 
 **Observability of synthesis**  
-A continuous recirculating medium can be observed without destroying the circulation (tap a voltage, view an OLED scope, or take a high-impedance probe). Full hard quantization or sampling does force a discrete outcome. The practical distinction is already visible on modules that show a live waveform while the signal continues to circulate.
+A continuous recirculating medium can be observed without destroying the circulation (high-impedance tap, OLED scope, or buffered probe). Full hard quantization or sampling does force a discrete outcome. This distinction is already visible on modules that display a live waveform while the signal continues to circulate. Tagged for later research: systematic comparison of non-destructive taps versus hard readout across different loop depths.
 
 **Energy state inside the lines**  
-The circulating voltage is an energy state of the path. Readout samples that state. Modules with small numeric displays (4-character or similar) typically show a parameter, a quantized value, or a short diagnostic; they are not themselves performing a collapse. They make an internal continuous or discrete quantity legible.
+The circulating voltage is an energy state of the path. Feedback gain, residual amplitude, and delay length determine how much energy is stored before a readout or nonlinear snap. Modules with small numeric displays (4-character or similar) typically show a parameter, a quantized value, or a short diagnostic; they make an internal continuous or discrete quantity legible. They are not themselves the collapse event.
 
 ---
 
 ## 4. Other Concepts Reinterpreted in the Synthesis Domain
 
-- **Wave readout as transceiver / transducer** — any jack that extracts a voltage from a circulating path is a transducer. The continuous medium remains; the extracted signal is a projection.
-- **Energy building in the lines** — feedback gain, residual amplitude, and delay length determine how much energy is stored in the loop before a readout or a nonlinear snap occurs.
+- **Wave readout as transceiver / transducer** — any jack that extracts a voltage from a circulating path is a transducer. The continuous medium remains; the extracted signal is a projection of the energy state.
+- **Energy building in the lines** — feedback gain, residual amplitude, and delay length set the stored energy before snap or readout.
 - **4-letter / 4-character motifs** — genetic codons are a biological discrete alphabet. Time signatures and small integers in music are discrete choices of lattice. Under this framework both are examples of selecting a discrete subset from a continuum. No deeper identity is claimed.
 - **Multiples of 4 in mixers** — most often reflect bit depth, channel count, or convenient digital word length, not genetic coding.
 
@@ -74,6 +74,8 @@ No single historical source was found that “reveals the synthesis truth” in 
 2. Nonlinear operator (quantizer, soft clipper, multiplier).
 3. Feedback / residual that enforces consistency.
 4. Readout that samples the resulting attractor.
+
+Didactic series and “true order” of application remain open; the sequence above is the one currently supported by modular practice and control literature.
 
 ---
 
@@ -100,7 +102,7 @@ Because the mapping is not uniquely quantum and risks confusion, the detailed ex
 | Residual gain | Correction strength | Error feedback | Pull toward discrete levels |
 | 42 | Cultural / computational anecdote | Hitchhiker’s Guide; cube-sum stories | Not a synthesis constant; treat as external reference only |
 
-No evidence was found that mystical numbers in general “point to unpublished science” in a systematic way. Specific computational anecdotes (long integers whose cubes sum to 42, etc.) are external to the signal framework.
+No evidence was found that mystical numbers in general “point to unpublished science” in a systematic way. Specific computational anecdotes (long integers whose cubes sum to 42, etc.) are external to the signal framework. A complete “synthesis value cheat sheet” that explains all such numbers was not located online in finished form.
 
 ---
 
@@ -121,6 +123,7 @@ These are classical control operations.
 - Neural-field and brain-wave models already using continuous fields.
 - Modular practice: pitch quantizers, feedback delays, residual/self-patching, ERD/TOAD-style continuous ODE engines, live waveform displays.
 - Notebook practice: parentheses and parallel groupings for simultaneous operations.
+- Techniques used for non-musical work (machine intelligence analogues): residual-driven reweighting, multi-path interference for concurrent interaction, continuous observability via high-Z taps or scopes, and discrete attractors as stable state spaces.
 
 No single site, book, or channel was found that presents a finished “synthesis truth.” The operations above are already in everyday use.
 
