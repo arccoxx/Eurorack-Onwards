@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">Measured error-budget timing</title>
+<desc id="desc">Median milliseconds for naive iteration versus the affine closed form at matched error budgets. This run only.</desc>
+<rect width="960" height="540" fill="#101620"/>
+<text x="40" y="42" fill="#f2f6ff" font-family="Georgia, serif" font-size="28">Matched error budget, measured time</text>
+<text x="40" y="74" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">Cyan: iterate. Amber: closed form. Batch 800. Not a universal bound.</text>
+<rect x="80" y="130" width="28" height="360" fill="#5ee0d0"/>
+<rect x="116" y="441.25427545251915" width="28" height="48.745724547480826" fill="#ffb020"/>
+<text x="80" y="510" fill="#e8eef7" font-size="14" font-family="ui-sans-serif, sans-serif">eps 0.01</text>
+<rect x="230" y="424.980392778709" width="28" height="65.01960722129098" fill="#5ee0d0"/>
+<rect x="266" y="463.6614047745545" width="28" height="26.338595225445506" fill="#ffb020"/>
+<text x="230" y="510" fill="#e8eef7" font-size="14" font-family="ui-sans-serif, sans-serif">eps 0.001</text>
+<rect x="380" y="395.3125817628271" width="28" height="94.6874182371729" fill="#5ee0d0"/>
+<rect x="416" y="460.640449705455" width="28" height="29.359550294544988" fill="#ffb020"/>
+<text x="380" y="510" fill="#e8eef7" font-size="14" font-family="ui-sans-serif, sans-serif">eps 0.0001</text>
+<rect x="530" y="307.64951199981" width="28" height="182.35048800019" fill="#5ee0d0"/>
+<rect x="566" y="469.52749213094785" width="28" height="20.472507869052166" fill="#ffb020"/>
+<text x="530" y="510" fill="#e8eef7" font-size="14" font-family="ui-sans-serif, sans-serif">eps 0.000001</text>
+<rect x="680" y="321.21583800454977" width="28" height="168.78416199545023" fill="#5ee0d0"/>
+<rect x="716" y="469.5155042140048" width="28" height="20.484495785995207" fill="#ffb020"/>
+<text x="680" y="510" fill="#e8eef7" font-size="14" font-family="ui-sans-serif, sans-serif">eps 1e-8</text>
+</svg>

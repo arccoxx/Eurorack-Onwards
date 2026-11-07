@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/arccoxx/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/schemas/experiment-input.schema.json",
+  "title": "Symposium experiment input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind"],
+  "properties": {
+    "kind": {"enum": ["mixer", "lattice", "solomonoff", "adapt", "bench", "frontier"]},
+    "seed": {"type": "integer"},
+    "mixer": {"type": "object"},
+    "lattice": {"type": "object"},
+    "solomonoff": {"type": "object"},
+    "adapt": {"type": "object"},
+    "bench": {"type": "object"}
+  },
+  "description": "Validate with validateExperiment before running. Do not include executable source. Numeric fields must be finite and inside the limits in signal-core.js."
+}

@@ -1,0 +1,109 @@
+{
+  "simulations": [
+    {
+      "paper_id": "1951-connectivity",
+      "title": "Connectivity of Random Nets",
+      "year": 1951,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1956-inductive-machine",
+      "title": "An Inductive Inference Machine",
+      "year": 1956,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1960-preliminary",
+      "title": "A Preliminary Report on a General Theory of Inductive Inference",
+      "year": 1960,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1964-ftii-1",
+      "title": "A Formal Theory of Inductive Inference, Part I",
+      "year": 1964,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1964-ftii-2",
+      "title": "A Formal Theory of Inductive Inference, Part II",
+      "year": 1964,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1978-complexity-induction",
+      "title": "Complexity-Based Induction Systems: Comparisons and Convergence Theorems",
+      "year": 1978,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1986-alp-ai",
+      "title": "The Application of Algorithmic Probability to Problems in Artificial Intelligence",
+      "year": 1986,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1989-incremental",
+      "title": "A System for Incremental Learning Based on Algorithmic Probability",
+      "year": 1989,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1997-discovery",
+      "title": "The Discovery of Algorithmic Probability",
+      "year": 1997,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "1999-two-kinds",
+      "title": "Two Kinds of Probabilistic Induction",
+      "year": 1999,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "2003-universal-dist",
+      "title": "The Universal Distribution and Machine Learning",
+      "year": 2003,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "2003-nips-incremental",
+      "title": "Progress in Incremental Machine Learning (rev 2)",
+      "year": 2003,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "2009-alp-theory",
+      "title": "Algorithmic Probability: Theory and Applications",
+      "year": 2009,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "2010-agi",
+      "title": "Algorithmic Probability, Heuristic Programming and AGI",
+      "year": 2010,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    },
+    {
+      "paper_id": "2011-strong-ai",
+      "title": "Algorithmic Probability -- Its Discovery -- Its Properties and Application to Strong AI",
+      "year": 2011,
+      "executable_status": "planned_not_implemented",
+      "note": "The overnight spec file repeated one finite-mixture teaching template. This release implements one finite prefix-free toy, not a distinct simulator per paper."
+    }
+  ]
+}

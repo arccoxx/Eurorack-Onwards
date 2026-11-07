@@ -1,0 +1,44 @@
+{
+  "label": "SYNTHETIC",
+  "not_conceptnet": true,
+  "license": "Written for this demo. Not ConceptNet. ConceptNet 5 is CC BY-SA 4.0 and was not fetched.",
+  "nodes": [
+    {
+      "id": "mixer",
+      "label": "matrix mixer"
+    },
+    {
+      "id": "sum",
+      "label": "weighted sum"
+    },
+    {
+      "id": "shaper",
+      "label": "tanh shaper"
+    },
+    {
+      "id": "feedback",
+      "label": "feedback map"
+    },
+    {
+      "id": "fixed",
+      "label": "fixed point"
+    }
+  ],
+  "edges": [
+    {
+      "from": "mixer",
+      "to": "sum",
+      "rel": "computes"
+    },
+    {
+      "from": "sum",
+      "to": "shaper",
+      "rel": "then"
+    },
+    {
+      "from": "feedback",
+      "to": "fixed",
+      "rel": "may_approach_if_contraction"
+    }
+  ]
+}

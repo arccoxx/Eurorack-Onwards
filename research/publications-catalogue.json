@@ -1,0 +1,116 @@
+{
+  "source_primary": "https://raysolomonoff.com/publications/pubs.html",
+  "redistribution": "Bibliographic metadata only. PDFs and HTML mirrors from the t472 crawl are not in this repository.",
+  "also": [
+    "DBLP via https://dblp.org/ (API returned challenge/202 HTML this session; HTML pubs list used)",
+    "Semantic Scholar API 429 rate-limited this session"
+  ],
+  "papers": [
+    {
+      "id": "1951-connectivity",
+      "year": 1951,
+      "title": "Connectivity of Random Nets",
+      "venue": "Bulletin of Mathematical Biophysics",
+      "why_major": "Pre-AI random graph / net connectivity; foundation for network thinking.",
+      "with": "Anatol Rapoport"
+    },
+    {
+      "id": "1956-inductive-machine",
+      "year": 1956,
+      "title": "An Inductive Inference Machine",
+      "venue": "Dartmouth workshop circulated report / later IRE 1957",
+      "why_major": "Workshop-era inductive machine; links to Dartmouth."
+    },
+    {
+      "id": "1960-preliminary",
+      "year": 1960,
+      "title": "A Preliminary Report on a General Theory of Inductive Inference",
+      "venue": "Zator / Rockford reports V-131 / ZTB-138",
+      "why_major": "First general ALP statement before 1964 journal papers."
+    },
+    {
+      "id": "1964-ftii-1",
+      "year": 1964,
+      "title": "A Formal Theory of Inductive Inference, Part I",
+      "venue": "Information and Control 7(1):1-22",
+      "why_major": "Canonical journal presentation of models of induction / UTM prior."
+    },
+    {
+      "id": "1964-ftii-2",
+      "year": 1964,
+      "title": "A Formal Theory of Inductive Inference, Part II",
+      "venue": "Information and Control 7(2):224-254",
+      "why_major": "Applications: Bernoulli, Markov, phrase-structure induction."
+    },
+    {
+      "id": "1978-complexity-induction",
+      "year": 1978,
+      "title": "Complexity-Based Induction Systems: Comparisons and Convergence Theorems",
+      "venue": "IEEE Trans. Information Theory IT-24(4):422-432",
+      "why_major": "Convergence theorems comparing complexity-based induction systems."
+    },
+    {
+      "id": "1986-alp-ai",
+      "year": 1986,
+      "title": "The Application of Algorithmic Probability to Problems in Artificial Intelligence",
+      "venue": "Uncertainty in AI / Advances in Cognitive Science",
+      "why_major": "Explicit ALP\u2192AI problem mapping."
+    },
+    {
+      "id": "1989-incremental",
+      "year": 1989,
+      "title": "A System for Incremental Learning Based on Algorithmic Probability",
+      "venue": "Israeli AI conference",
+      "why_major": "Incremental learning system design."
+    },
+    {
+      "id": "1997-discovery",
+      "year": 1997,
+      "title": "The Discovery of Algorithmic Probability",
+      "venue": "J. Computer and System Sciences 55(1):73-88",
+      "why_major": "Historical/conceptual discovery narrative."
+    },
+    {
+      "id": "1999-two-kinds",
+      "year": 1999,
+      "title": "Two Kinds of Probabilistic Induction",
+      "venue": "The Computer Journal 42(4)",
+      "why_major": "Clarifies induction kinds / universal distributions."
+    },
+    {
+      "id": "2003-universal-dist",
+      "year": 2003,
+      "title": "The Universal Distribution and Machine Learning",
+      "venue": "Computer Journal / Kolmogorov Lecture",
+      "why_major": "Kolmogorov lecture tying universal distribution to ML."
+    },
+    {
+      "id": "2003-nips-incremental",
+      "year": 2003,
+      "title": "Progress in Incremental Machine Learning (rev 2)",
+      "venue": "NIPS workshop 2002/2003",
+      "why_major": "Incremental ML progress report."
+    },
+    {
+      "id": "2009-alp-theory",
+      "year": 2009,
+      "title": "Algorithmic Probability: Theory and Applications",
+      "venue": "Information Theory and Statistical Learning (Springer)",
+      "why_major": "Late survey of ALP theory/applications."
+    },
+    {
+      "id": "2010-agi",
+      "year": 2010,
+      "title": "Algorithmic Probability, Heuristic Programming and AGI",
+      "venue": "AGI 2010",
+      "why_major": "ALP + heuristic programming for AGI."
+    },
+    {
+      "id": "2011-strong-ai",
+      "year": 2011,
+      "title": "Algorithmic Probability -- Its Discovery -- Its Properties and Application to Strong AI",
+      "venue": "Randomness Through Computation (Zenil ed.)",
+      "why_major": "Posthumous/late chapter on strong AI applications."
+    }
+  ]
+}

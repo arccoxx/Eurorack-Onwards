@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/arccoxx/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/schemas/experiment-result.schema.json",
+  "title": "Symposium experiment result",
+  "type": "object",
+  "required": ["ok", "verdict"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "kind": {"type": "string"},
+    "verdict": {"type": "string", "description": "match, residual, rejected, finite-toy, improved, worsened, diverged, flat, measured, or error-budget-miss"},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "context": {"type": "object"},
+    "result": {"type": "object"}
+  },
+  "description": "Machine-readable verdict from runExperiment. A measured timing verdict is not a universal speed claim."
+}

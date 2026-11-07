@@ -1,0 +1,588 @@
+{
+  "summary": {
+    "generatedBy": "tests/run-all.mjs",
+    "allPass": true,
+    "passCount": 27,
+    "failCount": 0,
+    "context": {
+      "node": "v22.23.4",
+      "platform": "linux",
+      "arch": "x64"
+    },
+    "bench": {
+      "n": 256,
+      "queries": 2000,
+      "absError": 1.9984014443252818e-15,
+      "flopsIncremental": 6512,
+      "flopsRecompute": 1024000,
+      "preprocessFlops": 512,
+      "stateBytes": 2056,
+      "medianRatio": 0.1283408501527769,
+      "incrementalMedianMs": 0.12882199999999955,
+      "incrementalMadMs": 0.002397000000001981,
+      "recomputeMedianMs": 1.0037489999999991,
+      "recomputeMadMs": 0.00221700000000169,
+      "samplesIncremental": [
+        0.16209200000000124,
+        0.3114840000000001,
+        0.1484090000000009,
+        0.12860000000000582,
+        0.12882199999999955,
+        0.12642499999999757,
+        0.12703499999999934
+      ],
+      "samplesRecompute": [
+        1.0111509999999981,
+        1.0023630000000026,
+        1.0015319999999974,
+        1.0149940000000015,
+        1.0041200000000003,
+        1.0010350000000017,
+        1.0037489999999991
+      ],
+      "q1": {
+        "flopsIncremental": 515,
+        "flopsRecompute": 512,
+        "medianRatio": 0.6726514635806716,
+        "incrementalMedianMs": 0.007905000000000939,
+        "recomputeMedianMs": 0.011752000000001317
+      }
+    },
+    "frontier": {
+      "alpha": 0.5,
+      "c": 1,
+      "x0": -1.5,
+      "batch": 800,
+      "rows": [
+        {
+          "eps": 0.01,
+          "steps": 8,
+          "applicable": true,
+          "iterationError": 0.009765625,
+          "closedFormError": 0.009765625,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              1.952894999999998,
+              0.825374999999994,
+              0.39857299999999896,
+              0.6306349999999981,
+              0.5195709999999991
+            ],
+            "medianMs": 0.6306349999999981,
+            "madMs": 0.19473999999999592
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.0686979999999977,
+              0.09558499999999981,
+              0.08746100000000467,
+              0.06804199999999838,
+              0.08539100000000133
+            ],
+            "medianMs": 0.08539100000000133,
+            "madMs": 0.010193999999998482
+          },
+          "impossibleInFloat64": false
+        },
+        {
+          "eps": 0.001,
+          "steps": 12,
+          "applicable": true,
+          "iterationError": 0.0006103515625,
+          "closedFormError": 0.0006103515625,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              0.6759620000000055,
+              0.11389899999999642,
+              0.2158329999999964,
+              0.105831000000002,
+              0.10755100000000084
+            ],
+            "medianMs": 0.11389899999999642,
+            "madMs": 0.008067999999994413
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.05245500000000192,
+              0.04291599999999818,
+              0.0461389999999966,
+              0.062196999999997615,
+              0.043879000000004
+            ],
+            "medianMs": 0.0461389999999966,
+            "madMs": 0.0032229999999984216
+          },
+          "impossibleInFloat64": false
+        },
+        {
+          "eps": 0.0001,
+          "steps": 15,
+          "applicable": true,
+          "iterationError": 0.0000762939453125,
+          "closedFormError": 0.0000762939453125,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              0.24493700000000018,
+              0.134046000000005,
+              0.13415799999999933,
+              0.20490999999999815,
+              0.16586999999999819
+            ],
+            "medianMs": 0.16586999999999819,
+            "madMs": 0.03182399999999319
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.04750099999999691,
+              0.05149300000000068,
+              0.05143100000000089,
+              0.0515490000000014,
+              0.045722000000004925
+            ],
+            "medianMs": 0.05143100000000089,
+            "madMs": 0.00011800000000050659
+          },
+          "impossibleInFloat64": false
+        },
+        {
+          "eps": 0.000001,
+          "steps": 22,
+          "applicable": true,
+          "iterationError": 5.960464477539062e-7,
+          "closedFormError": 5.960464477539062e-7,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              0.3439869999999985,
+              0.23465299999999445,
+              0.7668269999999993,
+              0.2188680000000005,
+              0.3194349999999986
+            ],
+            "medianMs": 0.3194349999999986,
+            "madMs": 0.08478200000000413
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.03594400000000064,
+              0.03580499999999631,
+              0.03587399999999974,
+              0.03586299999999909,
+              0.035786999999999125
+            ],
+            "medianMs": 0.03586299999999909,
+            "madMs": 0.00005800000000277805
+          },
+          "impossibleInFloat64": false
+        },
+        {
+          "eps": 1e-8,
+          "steps": 28,
+          "applicable": true,
+          "iterationError": 9.313225746154785e-9,
+          "closedFormError": 9.313225746154785e-9,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              0.2956700000000012,
+              0.22251899999999836,
+              0.30266800000000416,
+              0.22156600000000282,
+              0.30147600000000097
+            ],
+            "medianMs": 0.2956700000000012,
+            "madMs": 0.006998000000002946
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.03596600000000194,
+              0.03593500000000205,
+              0.035884000000002914,
+              0.03580600000000089,
+              0.03584399999999732
+            ],
+            "medianMs": 0.035884000000002914,
+            "madMs": 0.00005099999999913507
+          },
+          "impossibleInFloat64": false
+        },
+        {
+          "eps": 1e-18,
+          "steps": 62,
+          "applicable": true,
+          "iterationError": 0,
+          "closedFormError": 0,
+          "iterationMeetsBudget": true,
+          "closedFormMeetsBudget": true,
+          "agreement": 0,
+          "timeIteration": {
+            "samplesMs": [
+              0.5375289999999993,
+              0.47330399999999884,
+              0.5475090000000051,
+              0.5726190000000031,
+              0.5235529999999997
+            ],
+            "medianMs": 0.5375289999999993,
+            "madMs": 0.013975999999999544
+          },
+          "timeClosedForm": {
+            "samplesMs": [
+              0.0377329999999958,
+              0.03764499999999771,
+              0.03768000000000171,
+              0.038806000000001006,
+              0.04066199999999753
+            ],
+            "medianMs": 0.0377329999999958,
+            "madMs": 0.0000879999999980896
+          },
+          "impossibleInFloat64": true
+        }
+      ],
+      "baseline": "naive iteration of the affine recurrence",
+      "structuredMethod": "closed form x_n = c + alpha^n (x0-c), only for the unclamped affine map",
+      "notUniversal": true
+    },
+    "learn": {
+      "initial": 0.2580410723335366,
+      "final": 0.002357429743797316
+    },
+    "failAdapt": {
+      "initial": 0.0389570170338834,
+      "final": 1.1353112493020707
+    },
+    "quantResidual": 0.023480832277424063,
+    "idealResidual": 0
+  },
+  "log": [
+    {
+      "id": "mixer.ideal-residual",
+      "pass": true,
+      "detail": {
+        "residual": 0,
+        "y": 0.15864850429749894
+      }
+    },
+    {
+      "id": "mixer.quant-residual",
+      "pass": true,
+      "detail": {
+        "residual": 0.023480832277424063,
+        "wq": [
+          1,
+          0.5,
+          -0.30000000000000004
+        ]
+      }
+    },
+    {
+      "id": "mixer.scale-unitary",
+      "pass": true,
+      "detail": {
+        "residual": 0
+      }
+    },
+    {
+      "id": "mixer.rail-saturates",
+      "pass": true,
+      "detail": {
+        "residual": 0.07833141513356967,
+        "yPatch": 0.9216685544064713,
+        "yRef": 0.999999969540041
+      }
+    },
+    {
+      "id": "lattice.stable",
+      "pass": true,
+      "detail": {
+        "mode": "stable-contraction",
+        "distance": 5.960464477539062e-7,
+        "steps": 22
+      }
+    },
+    {
+      "id": "lattice.unstable",
+      "pass": true,
+      "detail": {
+        "mode": "unstable",
+        "end": 2.1499084799999997
+      }
+    },
+    {
+      "id": "lattice.closed-form-agreement",
+      "pass": true,
+      "detail": {
+        "agreement": 0,
+        "steps": 22
+      }
+    },
+    {
+      "id": "lattice.clamp-blocks-closed-form",
+      "pass": true,
+      "detail": {
+        "end": 0.4,
+        "applicable": false
+      }
+    },
+    {
+      "id": "lattice.tolerance-residual",
+      "pass": true,
+      "detail": {
+        "residual": 0.0024031308828516007
+      }
+    },
+    {
+      "id": "lattice.zero-tolerance-match",
+      "pass": true,
+      "detail": {
+        "residual": 0
+      }
+    },
+    {
+      "id": "solomonoff.hand-calc",
+      "pass": true,
+      "detail": {
+        "ok": true,
+        "universal": false,
+        "label": "finite_prefix_free_toy_not_solomonoff_Pm",
+        "kraft": 1,
+        "massOnObservation": 0.5,
+        "consistent": [
+          {
+            "bits": "10",
+            "output": "10",
+            "weight": 0.25
+          },
+          {
+            "bits": "110",
+            "output": "11",
+            "weight": 0.125
+          },
+          {
+            "bits": "111",
+            "output": "1110",
+            "weight": 0.125
+          }
+        ],
+        "nextBit": {
+          "0": 0.5,
+          "1": 0.5
+        },
+        "droppedBecauseInconsistent": 1
+      }
+    },
+    {
+      "id": "solomonoff.reject-prefix",
+      "pass": true,
+      "detail": {
+        "ok": false,
+        "reason": "program set is not prefix-free",
+        "universal": false
+      }
+    },
+    {
+      "id": "solomonoff.not-universal",
+      "pass": true,
+      "detail": {
+        "label": "finite_prefix_free_toy_not_solomonoff_Pm"
+      }
+    },
+    {
+      "id": "adapt.learn",
+      "pass": true,
+      "detail": {
+        "initial": 0.2580410723335366,
+        "final": 0.002357429743797316
+      }
+    },
+    {
+      "id": "adapt.fail",
+      "pass": true,
+      "detail": {
+        "initial": 0.0389570170338834,
+        "final": 1.1353112493020707,
+        "finalW": [
+          0.7743855867493568
+        ]
+      }
+    },
+    {
+      "id": "adapt.freeze",
+      "pass": true,
+      "detail": {
+        "w": [
+          0.10898751296480343,
+          0.10449375648240171
+        ]
+      }
+    },
+    {
+      "id": "adapt.reset",
+      "pass": true,
+      "detail": {
+        "w": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "bench.error-match",
+      "pass": true,
+      "detail": {
+        "absError": 1.9984014443252818e-15,
+        "stateBytes": 2056,
+        "preprocessFlops": 512
+      }
+    },
+    {
+      "id": "bench.flops",
+      "pass": true,
+      "detail": {
+        "q2000": {
+          "inc": 6512,
+          "full": 1024000
+        },
+        "q1": {
+          "inc": 515,
+          "full": 512
+        }
+      }
+    },
+    {
+      "id": "bench.wallclock-measured",
+      "pass": true,
+      "detail": {
+        "incrementalMedianMs": 0.12882199999999955,
+        "incrementalMadMs": 0.002397000000001981,
+        "recomputeMedianMs": 1.0037489999999991,
+        "recomputeMadMs": 0.00221700000000169,
+        "ratio": 0.1283408501527769,
+        "fasterOnThisRun": true,
+        "q1ratio": 0.6726514635806716,
+        "context": "Browser/Node CPU software. Not a Eurorack, FPGA, or asymptotic-optimality result. Preprocess cost is included in the incremental flop count and timer."
+      }
+    },
+    {
+      "id": "frontier.budgets",
+      "pass": true,
+      "detail": [
+        {
+          "eps": 0.01,
+          "steps": 8,
+          "agreement": 0,
+          "iterationMedianMs": 0.6306349999999981,
+          "closedMedianMs": 0.08539100000000133
+        },
+        {
+          "eps": 0.001,
+          "steps": 12,
+          "agreement": 0,
+          "iterationMedianMs": 0.11389899999999642,
+          "closedMedianMs": 0.0461389999999966
+        },
+        {
+          "eps": 0.0001,
+          "steps": 15,
+          "agreement": 0,
+          "iterationMedianMs": 0.16586999999999819,
+          "closedMedianMs": 0.05143100000000089
+        },
+        {
+          "eps": 0.000001,
+          "steps": 22,
+          "agreement": 0,
+          "iterationMedianMs": 0.3194349999999986,
+          "closedMedianMs": 0.03586299999999909
+        },
+        {
+          "eps": 1e-8,
+          "steps": 28,
+          "agreement": 0,
+          "iterationMedianMs": 0.2956700000000012,
+          "closedMedianMs": 0.035884000000002914
+        }
+      ]
+    },
+    {
+      "id": "frontier.underflow-row",
+      "pass": true,
+      "detail": {
+        "iterationError": 0,
+        "closedFormError": 0,
+        "note": "If the error is 0, float64 underflowed the correction onto the representable target. That is not extra precision."
+      }
+    },
+    {
+      "id": "frontier.no-universal-claim",
+      "pass": true,
+      "detail": {
+        "baseline": "naive iteration of the affine recurrence",
+        "structuredMethod": "closed form x_n = c + alpha^n (x0-c), only for the unclamped affine map"
+      }
+    },
+    {
+      "id": "invalid.types",
+      "pass": true,
+      "detail": {
+        "errors": [
+          [
+            "mixer.w[0] must be a finite number"
+          ],
+          [
+            "mixer.x[0] must be a finite number"
+          ],
+          [
+            "forbidden key $.eval"
+          ],
+          [
+            "mixer.x must be an array of length 1..64",
+            "mixer.w must be an array of length 1..64"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "roundtrip.export",
+      "pass": true,
+      "detail": {
+        "ok": true,
+        "errors": [],
+        "equal": true
+      }
+    },
+    {
+      "id": "schema.present",
+      "pass": true,
+      "detail": {
+        "graphErrors": [
+          "unknown module kind eval-box"
+        ]
+      }
+    },
+    {
+      "id": "cli.smoke",
+      "pass": true,
+      "detail": {
+        "cliStatus": 0,
+        "pyStatus": 0,
+        "js": 0.15864850429749894,
+        "py": 0.1586485042974989
+      }
+    }
+  ]
+}

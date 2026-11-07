@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="t d">
+<title id="t">Zynq MPSoC is not an Alveo card</title>
+<desc id="d">Zynq UltraScale Plus MPSoC is an embedded SoC. Alveo cards are datacenter PCIe accelerators. This figure states the distinction and no measured throughput.</desc>
+<rect width="960" height="300" rx="18" fill="#101620"/>
+<text x="32" y="44" fill="#f2f6ff" font-family="Georgia, serif" font-size="28">Do not mix these parts up</text>
+<rect x="40" y="80" width="420" height="180" rx="12" fill="#1a2433"/>
+<rect x="500" y="80" width="420" height="180" rx="12" fill="#1a2433"/>
+<text x="64" y="124" fill="#5ee0d0" font-family="Georgia, serif" font-size="24">Zynq UltraScale+ MPSoC</text>
+<text x="64" y="164" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="16">Embedded SoC: A53, R5F, programmable logic</text>
+<text x="64" y="196" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">CG, EG, and EV variants. SKU sets the DSP count.</text>
+<text x="64" y="228" fill="#ffb020" font-family="ui-sans-serif, sans-serif" font-size="16">Estimates below are UNMEASURED</text>
+<text x="524" y="124" fill="#ffb020" font-family="Georgia, serif" font-size="24">Alveo / UltraScale+ cards</text>
+<text x="524" y="164" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="16">Datacenter PCIe accelerator cards</text>
+<text x="524" y="196" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">Different board, memory, and deployment</text>
+<text x="524" y="228" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">No Alveo bandwidth number is quoted here</text>
+</svg>

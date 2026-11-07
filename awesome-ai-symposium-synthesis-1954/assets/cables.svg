@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" role="img" aria-labelledby="t d">
+<title id="t">Educational cables</title>
+<desc id="d">CV sources feed VCAs, a summer, and a shaper. A second loop shows a feedback attenuator into a clamp.</desc>
+<rect width="960" height="280" rx="18" fill="#101620"/>
+<text x="32" y="40" fill="#f2f6ff" font-family="Georgia, serif" font-size="26">Cables in the patch graph</text>
+<g font-family="ui-sans-serif, sans-serif" font-size="16" fill="#f2f6ff">
+<rect x="40" y="80" width="110" height="40" rx="8" fill="#243044"/><text x="62" y="106">CV</text>
+<rect x="220" y="80" width="110" height="40" rx="8" fill="#3a3420"/><text x="250" y="106">VCA</text>
+<rect x="400" y="80" width="120" height="40" rx="8" fill="#1d3a38"/><text x="424" y="106">summer</text>
+<rect x="590" y="80" width="130" height="40" rx="8" fill="#3a2430"/><text x="620" y="106">shaper</text>
+<rect x="40" y="180" width="140" height="40" rx="8" fill="#243044"/><text x="58" y="206">state</text>
+<rect x="250" y="180" width="170" height="40" rx="8" fill="#3a3420"/><text x="270" y="206">feedback a</text>
+<rect x="490" y="180" width="120" height="40" rx="8" fill="#1d3a38"/><text x="518" y="206">clamp</text>
+</g>
+<path d="M150 100 H220 M330 100 H400 M520 100 H590 M180 200 H250 M420 200 H490" stroke="#5ee0d0" stroke-width="3" fill="none"/>
+</svg>

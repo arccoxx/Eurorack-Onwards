@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="t d">
+<title id="t">Matrix mixer as a weighted sum</title>
+<desc id="d">Three inputs pass through gains into a summer and a tanh shaper. This is an analogy to a neuron, not a biological claim.</desc>
+<rect width="960" height="320" rx="18" fill="#101620"/>
+<text x="32" y="42" fill="#f2f6ff" font-family="Georgia, serif" font-size="28">Mixer channels, then a shaper</text>
+<g font-family="ui-sans-serif, sans-serif" font-size="16" fill="#f2f6ff">
+<rect x="40" y="80" width="120" height="44" rx="8" fill="#243044"/><text x="58" y="108">x0</text>
+<rect x="40" y="140" width="120" height="44" rx="8" fill="#243044"/><text x="58" y="168">x1</text>
+<rect x="40" y="200" width="120" height="44" rx="8" fill="#243044"/><text x="58" y="228">x2</text>
+<rect x="250" y="80" width="140" height="44" rx="8" fill="#3a3420"/><text x="268" y="108">gain w0</text>
+<rect x="250" y="140" width="140" height="44" rx="8" fill="#3a3420"/><text x="268" y="168">gain w1</text>
+<rect x="250" y="200" width="140" height="44" rx="8" fill="#3a3420"/><text x="268" y="228">gain w2</text>
+<rect x="500" y="130" width="140" height="70" rx="8" fill="#1d3a38"/><text x="528" y="170">summer</text>
+<rect x="720" y="130" width="190" height="70" rx="8" fill="#3a2430"/><text x="748" y="162">tanh shaper</text>
+<text x="748" y="186" fill="#c5d0e0">y in (-1, 1)</text>
+</g>
+<path d="M160 102 H250 M390 102 H500 M160 162 H250 M390 162 H570 M160 222 H250 M390 222 H500 M640 165 H720" stroke="#5ee0d0" stroke-width="3" fill="none"/>
+<text x="32" y="290" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">Reference: y = tanh(w.x + b). A quantizer or a rail makes the patch differ.</text>
+</svg>

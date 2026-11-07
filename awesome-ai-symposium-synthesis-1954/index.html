@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Symposium synthesis demos — proposal 1955, workshop 1956</title>
+<link rel="canonical" href="https://arccoxx.github.io/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/"/>
+<style>
+:root { color-scheme: dark; --bg:#10141c; --card:#171e2a; --ink:#f2f6ff; --muted:#c5d0e0; --line:#314056; --cyan:#5ee0d0; --amber:#ffb020; --bad:#ff8b7a; --ok:#9dffc2; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:ui-sans-serif, system-ui, sans-serif; font-size:1.05rem; line-height:1.45; }
+a { color:var(--cyan); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--amber); outline-offset:2px; }
+header, main { width:min(1100px, calc(100% - 1.5rem)); margin:0 auto; }
+header { padding:1.2rem 0 0.4rem; }
+h1, h2, h3 { font-family:Georgia, "Iowan Old Style", serif; line-height:1.15; }
+h1 { font-size:clamp(1.8rem, 4vw, 2.6rem); margin:0.2rem 0; }
+.banner, .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:0.9rem 1rem; }
+.banner { background:#2a2214; border-color:#6a5424; }
+.row { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+.tabs { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.8rem 0; }
+button, .tab { min-height:44px; border-radius:10px; border:1px solid var(--line); background:#121924; color:var(--ink); padding:0.4rem 0.75rem; font:inherit; }
+button[aria-selected="true"] { border-color:var(--amber); color:var(--amber); }
+label { display:block; margin:0.45rem 0; color:var(--muted); }
+input[type="range"] { width:100%; accent-color:var(--amber); }
+input[type="number"], input[type="text"], select, textarea { width:100%; min-height:44px; background:#0e141e; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:0.4rem 0.5rem; font:inherit; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+.ref { border-top:4px solid var(--cyan); }
+.patch { border-top:4px solid var(--amber); }
+canvas { width:100%; height:auto; background:#0e141e; border-radius:8px; }
+output, pre { font-family:ui-monospace, monospace; font-size:0.92rem; white-space:pre-wrap; word-break:break-word; }
+.ok { color:var(--ok); } .bad { color:var(--bad); } .muted { color:var(--muted); }
+.figures { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+.figures img { width:100%; height:auto; border-radius:12px; }
+footer { width:min(1100px, calc(100% - 1.5rem)); margin:1rem auto 2rem; color:var(--muted); }
+@media (max-width: 800px) {
+  .split, .figures { grid-template-columns:1fr; }
+  h1 { font-size:1.7rem; }
+}
+</style>
+</head>
+<body>
+<a href="#controls">Skip to controls</a>
+<header>
+<p class="muted">Public educational CPU simulation · folder name awesome-ai-symposium-synthesis-1954</p>
+<h1>Proposal 1955, workshop 1956</h1>
+<p>The folder name is a brand label. The archived Dartmouth proposal PDF prints <strong>August 31, 1955</strong>. The workshop was the summer of <strong>1956</strong>. Warren Weaver is not treated here as a 1955 proposal co-author.</p>
+<div class="banner"><strong>Honesty.</strong> This page runs JavaScript on a CPU. It is not a physical Eurorack, not an FPGA benchmark, and not a proof of a universal optimum. Feedback fixed points are computational. Solomonoff’s universal mixture is not computed.</div>
+</header>
+<main>
+<section class="figures" aria-label="Diagrams">
+<img src="assets/chronology.svg" alt="Three cards: folder label 1954, proposal 1955, workshop 1956."/>
+<img src="assets/honesty-banner.svg" alt="Banner stating no universal optimum, no physical time travel, and no unmeasured silicon speed."/>
+<img src="assets/code-vs-patch.svg" alt="Shared input between a reference formula and a patch with quantization and rails."/>
+<img src="assets/cables.svg" alt="Cable diagram from CV through VCA and summer to a shaper, plus a feedback attenuator into a clamp."/>
+</section>
+
+<div class="row" style="margin:0.8rem 0">
+<a href="implementations/signal-core.js">Source</a>
+<a href="docs/llms.md">LLM instructions</a>
+<a href="schemas/experiment-input.schema.json">Input schema</a>
+<a href="results/claims-verdicts.json">Test verdicts</a>
+<button type="button" id="copy-settings">Copy settings</button>
+<button type="button" id="copy-link">Permalink</button>
+<button type="button" id="export-json">Export JSON</button>
+<label for="import-json">Import JSON<input id="import-json" type="file" accept="application/json,.json"/></label>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+
+<div class="tabs" role="tablist" aria-label="Demos" id="controls">
+<button type="button" class="tab" id="tab-mixer" role="tab" aria-selected="true" aria-controls="panel-mixer">Matrix mixer</button>
+<button type="button" class="tab" id="tab-lattice" role="tab" aria-selected="false" aria-controls="panel-lattice">Lattice / fixed point</button>
+<button type="button" class="tab" id="tab-solomonoff" role="tab" aria-selected="false" aria-controls="panel-solomonoff">Finite mixture</button>
+<button type="button" class="tab" id="tab-adapt" role="tab" aria-selected="false" aria-controls="panel-adapt">Online adapt</button>
+<button type="button" class="tab" id="tab-bench" role="tab" aria-selected="false" aria-controls="panel-bench">Equal-problem timing</button>
+</div>
+
+<section id="panel-mixer" role="tabpanel" aria-labelledby="tab-mixer">
+<div class="row">
+<button type="button" data-preset="ideal">Ideal match</button>
+<button type="button" data-preset="quant">Quantized knobs</button>
+<button type="button" data-preset="rail">Rail saturation</button>
+</div>
+<div class="card">
+<label>Input x0 <output id="x0v"></output><input id="x0" type="range" min="-1" max="1" step="0.01" value="0.5"/></label>
+<label>Input x1 <output id="x1v"></output><input id="x1" type="range" min="-1" max="1" step="0.01" value="-0.2"/></label>
+<label>Input x2 <output id="x2v"></output><input id="x2" type="range" min="-1" max="1" step="0.01" value="0.8"/></label>
+<label>Gain w0 <output id="w0v"></output><input id="w0" type="range" min="-3" max="3" step="0.01" value="1"/></label>
+<label>Gain w1 <output id="w1v"></output><input id="w1" type="range" min="-3" max="3" step="0.01" value="0.5"/></label>
+<label>Gain w2 <output id="w2v"></output><input id="w2" type="range" min="-3" max="3" step="0.01" value="-0.33"/></label>
+<label>Bias <output id="bv"></output><input id="b" type="range" min="-1" max="1" step="0.01" value="0"/></label>
+<label>Knob step (0 = no quantizer)<input id="quant" type="number" min="0" max="1" step="0.01" value="0"/></label>
+<label>Volts per unit<input id="vpu" type="number" min="0.1" max="12" step="0.1" value="5"/></label>
+<label>Summer rail, volts<input id="rail" type="number" min="0.1" max="40" step="0.1" value="10"/></label>
+</div>
+<div class="split">
+<article class="card ref"><h2>Reference</h2><p>Float64 tanh(w·x+b). No knob step and no rail.</p><p>y = <output id="yref">—</output></p><canvas id="cref" width="480" height="180" aria-hidden="true"></canvas></article>
+<article class="card patch"><h2>Patch</h2><p>Same x, w, and bias, then knob step, × volts, rail, ÷ volts, tanh.</p><p>y = <output id="ypatch">—</output></p><p>residual = <output id="mres">—</output></p><p>saturated = <output id="sat">—</output></p><canvas id="cpatch" width="480" height="180" aria-hidden="true"></canvas></article>
+</div>
+</section>
+
+<section id="panel-lattice" role="tabpanel" aria-labelledby="tab-lattice" hidden>
+<div class="row">
+<button type="button" data-preset="stable">Stable α</button>
+<button type="button" data-preset="unstable">Unstable α</button>
+<button type="button" data-preset="tolerance">1% patch tolerance</button>
+<button type="button" data-preset="clamp">Lattice clamp</button>
+</div>
+<div class="card">
+<p class="banner">Computational feedback. A stable attractor is not a closed timelike curve and does not put this program in PSPACE.</p>
+<label>Contraction α <output id="av"></output><input id="alpha" type="range" min="-1.5" max="1.5" step="0.01" value="0.5"/></label>
+<label>Target c <output id="cv"></output><input id="target" type="range" min="-2" max="2" step="0.01" value="1"/></label>
+<label>Start x0 <output id="x0lv"></output><input id="x0l" type="range" min="-2" max="2" step="0.01" value="-1.5"/></label>
+<label>Steps<input id="steps" type="number" min="1" max="80" step="1" value="12"/></label>
+<label>Patch gain tolerance (0 = same map)<input id="tol" type="number" min="-0.5" max="0.5" step="0.01" value="0"/></label>
+<label>Clamp low (empty = off)<input id="lo" type="text" value=""/></label>
+<label>Clamp high (empty = off)<input id="hi" type="text" value=""/></label>
+</div>
+<div class="split">
+<article class="card ref"><h2>Reference iteration</h2><p>mode = <output id="mode">—</output></p><p>endpoint = <output id="xref">—</output></p><canvas id="lref" width="480" height="180" aria-hidden="true"></canvas></article>
+<article class="card patch"><h2>Patch iteration</h2><p>Same α, c, x0, steps. Tolerance and the labels differ.</p><p>endpoint = <output id="xpatch">—</output></p><p>residual = <output id="lres">—</output></p><p>closed form applies = <output id="closed">—</output></p><canvas id="lpatch" width="480" height="180" aria-hidden="true"></canvas></article>
+</div>
+</section>
+
+<section id="panel-solomonoff" role="tabpanel" aria-labelledby="tab-solomonoff" hidden>
+<div class="banner"><strong>Uncomputable warning.</strong> P_M sums every program that prints the string. This control sums four hand-listed programs. universal is false.</div>
+<label>Observed prefix (0 and 1 only)<input id="obs" type="text" value="1" maxlength="32" pattern="[01]*"/></label>
+<label>Program list as JSON data, not code<textarea id="programs" rows="8"></textarea></label>
+<article class="card"><h2>Finite mixture result</h2><output id="mixout">—</output></article>
+</section>
+
+<section id="panel-adapt" role="tabpanel" aria-labelledby="tab-adapt" hidden>
+<div class="row">
+<button type="button" data-preset="learn">Small step, improves</button>
+<button type="button" data-preset="fail">Large step, worsens</button>
+<button type="button" data-preset="freeze">Freeze weights</button>
+</div>
+<p>Squared error of tanh(w·x) against a fixed target. Freeze stops updates. The trace is allowed to get worse.</p>
+<label>Learning rate<input id="lr" type="number" min="0" max="20" step="0.05" value="0.35"/></label>
+<article class="card"><h2>Adaptation trace</h2><p>verdict = <output id="averdict">—</output></p><p>initial = <output id="ainit">—</output> final = <output id="afin">—</output></p><canvas id="adaptc" width="640" height="180" aria-hidden="true"></canvas></article>
+</section>
+
+<section id="panel-bench" role="tabpanel" aria-labelledby="tab-bench" hidden>
+<div class="banner">Equal task: apply the same sequence of single-weight edits. Baseline recomputes the dot product. Incremental keeps y and adds Δw·x. Preprocess and state bytes are included. This is still CPU software.</div>
+<button type="button" id="run-bench">Run timing on this browser</button>
+<article class="card"><h2>This browser</h2><output id="benchlive">Not run yet.</output></article>
+<article class="card"><h2>Archived Node measurement</h2><output id="benchnode">Loading results/node-bench.json …</output></article>
+<img src="assets/residual-frontier.svg" alt="Bar chart of measured milliseconds for iteration versus closed form at several error budgets."/>
+</section>
+
+<h2>Machine-readable result</h2>
+<pre id="machine-result">{}</pre>
+</main>
+<footer>
+<p>Power, scaling, and module notes: <a href="modules/cv-mapping-range-scaling.md">CV mapping</a>. Patches: <a href="patches/mixer-neuron-patch.md">mixer</a>, <a href="patches/fixedpoint-feedback-patch.md">feedback</a>. Untested sketches, not these demos: <a href="seeds/README-SEEDS.md">seeds</a>.</p>
+</footer>
+<script type="module">
+import { contractionFrontier, incrementalVsRecompute, runExperiment, validateExperiment, validatePatchGraph } from "./implementations/signal-core.js";
+
+const $ = (id) => document.getElementById(id);
+const PROGRAMS = [
+  { bits: "0", output: "0" },
+  { bits: "10", output: "10" },
+  { bits: "110", output: "11" },
+  { bits: "111", output: "1110" },
+];
+$("programs").value = JSON.stringify(PROGRAMS, null, 2);
+const panels = ["mixer", "lattice", "solomonoff", "adapt", "bench"];
+let active = "mixer";
+
+function show(which) {
+  if (!panels.includes(which)) return;
+  active = which;
+  for (const name of panels) {
+    $("panel-" + name).hidden = name !== which;
+    $("tab-" + name).setAttribute("aria-selected", name === which ? "true" : "false");
+  }
+}
+panels.forEach((name) => $("tab-" + name).addEventListener("click", () => { show(name); compute(); }));
+
+function num(id) { return Number($(id).value); }
+function optionalBound(id) {
+  const text = $(id).value.trim();
+  if (text === "") return null;
+  const value = Number(text);
+  return Number.isFinite(value) ? value : text;
+}
+
+function mixerInput() {
+  return {
+    kind: "mixer",
+    mixer: {
+      x: [num("x0"), num("x1"), num("x2")],
+      w: [num("w0"), num("w1"), num("w2")],
+      bias: num("b"),
+      quantStep: num("quant"),
+      voltsPerUnit: num("vpu"),
+      railVolts: num("rail"),
+      shaper: "tanh",
+    },
+  };
+}
+function latticeInput() {
+  return {
+    kind: "lattice",
+    lattice: {
+      alpha: num("alpha"),
+      c: num("target"),
+      x0: num("x0l"),
+      steps: num("steps"),
+      tolerance: num("tol"),
+      lo: optionalBound("lo"),
+      hi: optionalBound("hi"),
+    },
+  };
+}
+function solomonoffInput() {
+  let programs;
+  try { programs = JSON.parse($("programs").value); }
+  catch { programs = null; }
+  return { kind: "solomonoff", solomonoff: { programs, observation: $("obs").value } };
+}
+function adaptInput(preset) {
+  if (preset === "fail") {
+    return { kind: "adapt", adapt: { xs: [[1]], targetW: [0.2], initW: [0], bias: 0, lr: num("lr") || 8, steps: 6 } };
+  }
+  if (preset === "freeze") {
+    return { kind: "adapt", adapt: { xs: [[0.5, 0.25]], targetW: [0.3, -0.2], initW: [0.1, 0.1], bias: 0, lr: num("lr") || 0.2, steps: 12, freezeAt: 4 } };
+  }
+  return { kind: "adapt", adapt: { xs: [[0.6, -0.2], [-0.4, 0.8], [0.2, 0.2]], targetW: [0.8, -0.4], initW: [0, 0], bias: 0, lr: num("lr") || 0.35, steps: 40 } };
+}
+
+let adaptPreset = "learn";
+function currentInput() {
+  if (active === "mixer") return mixerInput();
+  if (active === "lattice") return latticeInput();
+  if (active === "solomonoff") return solomonoffInput();
+  if (active === "adapt") return adaptInput(adaptPreset);
+  return { kind: "bench", seed: 7, bench: { n: 128, queries: 400, warmup: 1, repeats: 3 } };
+}
+
+function drawLine(canvas, series, color) {
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width;
+  const h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = "#0e141e";
+  ctx.fillRect(0, 0, w, h);
+  if (!series.length) return;
+  const min = Math.min(...series);
+  const max = Math.max(...series);
+  const span = max - min || 1;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  series.forEach((value, index) => {
+    const x = 8 + (index / Math.max(series.length - 1, 1)) * (w - 16);
+    const y = h - 12 - ((value - min) / span) * (h - 24);
+    if (index) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+  });
+  ctx.stroke();
+}
+
+function publish(input, output) {
+  const payload = { input, output };
+  $("machine-result").textContent = JSON.stringify(payload, null, 2);
+  const ok = output.ok !== false && output.verdict !== "rejected";
+  $("status").textContent = ok ? `Verdict ${output.verdict || output.result?.verdict || "ok"}` : `Rejected: ${(output.errors || []).join("; ")}`;
+  $("status").className = ok ? "ok" : "bad";
+}
+
+function reflectMixerLabels() {
+  for (const id of ["x0", "x1", "x2", "w0", "w1", "w2", "b"]) $(id + "v").value = $(id).value;
+}
+function renderMixer(output) {
+  reflectMixerLabels();
+  if (!output.ok) return;
+  const result = output.result;
+  $("yref").value = result.reference.y.toFixed(6);
+  $("ypatch").value = result.patch.y.toFixed(6);
+  $("mres").value = result.residual.toExponential(3);
+  $("sat").value = String(result.patch.saturated);
+  const xs = [];
+  const ref = [];
+  const patch = [];
+  const input = mixerInput().mixer;
+  for (let i = 0; i < 40; i++) {
+    const t = -1 + (2 * i) / 39;
+    const trial = { ...input, x: [t, input.x[1], input.x[2]] };
+    const run = runExperiment({ kind: "mixer", mixer: trial });
+    xs.push(t);
+    ref.push(run.result.reference.y);
+    patch.push(run.result.patch.y);
+  }
+  drawLine($("cref"), ref, "#5ee0d0");
+  drawLine($("cpatch"), patch, "#ffb020");
+}
+function renderLattice(output) {
+  $("av").value = $("alpha").value;
+  $("cv").value = $("target").value;
+  $("x0lv").value = $("x0l").value;
+  if (!output.ok) return;
+  const result = output.result;
+  $("mode").value = result.mode;
+  $("xref").value = result.reference.x.toFixed(6);
+  $("xpatch").value = result.patch.x.toFixed(6);
+  $("lres").value = result.residual.toExponential(3);
+  $("closed").value = String(result.closedFormApplicable);
+  drawLine($("lref"), result.reference.hist, "#5ee0d0");
+  drawLine($("lpatch"), result.patch.hist, "#ffb020");
+}
+function renderMix(output) {
+  $("mixout").value = JSON.stringify(output.ok ? output.result : output, null, 2);
+}
+function renderAdapt(output) {
+  if (!output.ok) return;
+  $("averdict").value = output.result.verdict;
+  $("ainit").value = output.result.initialSquaredError.toFixed(6);
+  $("afin").value = output.result.finalSquaredError.toFixed(6);
+  drawLine($("adaptc"), output.result.hist.map((row) => row.squaredError), output.result.worsened ? "#ff8b7a" : "#9dffc2");
+}
+
+function compute() {
+  const input = currentInput();
+  const output = runExperiment(input);
+  publish(input, output);
+  if (active === "mixer") renderMixer(output);
+  if (active === "lattice") renderLattice(output);
+  if (active === "solomonoff") renderMix(output);
+  if (active === "adapt") renderAdapt(output);
+  return output;
+}
+
+function applyPreset(name) {
+  if (name === "ideal") { $("quant").value = 0; $("rail").value = 1000; $("w2").value = -0.3; show("mixer"); }
+  if (name === "quant") { $("quant").value = 0.1; $("vpu").value = 5; $("rail").value = 10; $("w2").value = -0.33; show("mixer"); }
+  if (name === "rail") { $("quant").value = 0; $("vpu").value = 5; $("rail").value = 8; $("w0").value = 3; $("w1").value = 3; $("w2").value = 3; $("x0").value = 1; $("x1").value = 1; $("x2").value = 1; show("mixer"); }
+  if (name === "stable") { $("alpha").value = 0.5; $("tol").value = 0; $("lo").value = ""; $("hi").value = ""; $("steps").value = 24; show("lattice"); }
+  if (name === "unstable") { $("alpha").value = 1.2; $("target").value = 0; $("x0l").value = 0.5; $("tol").value = 0; $("steps").value = 8; $("lo").value = ""; $("hi").value = ""; show("lattice"); }
+  if (name === "tolerance") { $("alpha").value = 0.5; $("target").value = 1; $("x0l").value = -1.5; $("tol").value = 0.01; $("steps").value = 6; $("lo").value = ""; $("hi").value = ""; show("lattice"); }
+  if (name === "clamp") { $("alpha").value = 0.5; $("target").value = 1; $("x0l").value = 0; $("tol").value = 0; $("steps").value = 30; $("lo").value = -0.4; $("hi").value = 0.4; show("lattice"); }
+  if (name === "learn") { adaptPreset = "learn"; $("lr").value = 0.35; show("adapt"); }
+  if (name === "fail") { adaptPreset = "fail"; $("lr").value = 8; show("adapt"); }
+  if (name === "freeze") { adaptPreset = "freeze"; $("lr").value = 0.2; show("adapt"); }
+  compute();
+}
+document.querySelectorAll("[data-preset]").forEach((button) => button.addEventListener("click", () => applyPreset(button.dataset.preset)));
+["x0","x1","x2","w0","w1","w2","b","quant","vpu","rail","alpha","target","x0l","steps","tol","lo","hi","obs","programs","lr"].forEach((id) => {
+  $(id).addEventListener("input", () => { if (!$(id).closest("[hidden]")) compute(); });
+});
+
+function settingsBlob() { return currentInput(); }
+$("copy-settings").addEventListener("click", async () => {
+  const text = JSON.stringify(settingsBlob(), null, 2);
+  try { await navigator.clipboard.writeText(text); $("status").textContent = "Settings copied."; }
+  catch { $("status").textContent = "Clipboard unavailable. The JSON is in the result box."; }
+});
+$("copy-link").addEventListener("click", async () => {
+  const url = new URL(location.href);
+  url.searchParams.set("demo", active);
+  url.searchParams.set("doc", JSON.stringify(settingsBlob()));
+  history.replaceState(null, "", url);
+  try { await navigator.clipboard.writeText(url.toString()); $("status").textContent = "Permalink copied."; }
+  catch { $("status").textContent = url.toString(); }
+});
+$("export-json").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(settingsBlob(), null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "experiment.json";
+  link.click();
+  URL.revokeObjectURL(url);
+});
+$("import-json").addEventListener("change", async () => {
+  const file = $("import-json").files?.[0];
+  if (!file) return;
+  if (file.size > 100000) { $("status").textContent = "File too large."; return; }
+  let raw;
+  try { raw = JSON.parse(await file.text()); }
+  catch { $("status").textContent = "JSON parse failed."; return; }
+  if (raw.nodes && raw.cables) {
+    const graph = validatePatchGraph(raw);
+    $("status").textContent = graph.ok ? "Patch graph parsed. It is data, not a runnable arbitrary net in this importer." : graph.errors.join("; ");
+    $("machine-result").textContent = JSON.stringify(graph, null, 2);
+    return;
+  }
+  const checked = validateExperiment(raw);
+  if (!checked.ok) { $("status").textContent = checked.errors.join("; "); return; }
+  if (raw.kind === "mixer") {
+    const m = raw.mixer;
+    ["x0","x1","x2"].forEach((id, i) => { if (m.x[i] != null) $(id).value = m.x[i]; });
+    ["w0","w1","w2"].forEach((id, i) => { if (m.w[i] != null) $(id).value = m.w[i]; });
+    $("b").value = m.bias ?? 0; $("quant").value = m.quantStep ?? 0; $("vpu").value = m.voltsPerUnit ?? 1; $("rail").value = m.railVolts ?? 10;
+    show("mixer");
+  } else if (raw.kind === "lattice") {
+    const L = raw.lattice;
+    $("alpha").value = L.alpha; $("target").value = L.c; $("x0l").value = L.x0; $("steps").value = L.steps ?? 12; $("tol").value = L.tolerance ?? 0;
+    $("lo").value = L.lo ?? ""; $("hi").value = L.hi ?? "";
+    show("lattice");
+  } else if (raw.kind === "solomonoff") {
+    $("programs").value = JSON.stringify(raw.solomonoff.programs, null, 2);
+    $("obs").value = raw.solomonoff.observation ?? "";
+    show("solomonoff");
+  } else show(raw.kind === "frontier" ? "bench" : raw.kind);
+  compute();
+});
+
+$("run-bench").addEventListener("click", () => {
+  const live = incrementalVsRecompute({ n: 128, queries: 400, seed: 7, warmup: 1, repeats: 5 });
+  const front = contractionFrontier({ batch: 200, repeats: 3, warmup: 1, budgets: [1e-2, 1e-4, 1e-8] });
+  const text = {
+    context: live.note,
+    browser: navigator.userAgent,
+    absError: live.absError,
+    withinBudget: live.withinBudget,
+    flopsIncremental: live.flopsIncremental,
+    flopsRecompute: live.flopsRecompute,
+    stateBytes: live.stateBytes,
+    medianRatio: live.medianRatioIncrementalOverRecompute,
+    incrementalMedianMs: live.timeIncremental.medianMs,
+    recomputeMedianMs: live.timeRecompute.medianMs,
+    fasterOnThisRun: live.fasterOnThisRun,
+    frontierMs: front.rows.map((row) => ({ eps: row.eps, iteration: row.timeIteration.medianMs, closedForm: row.timeClosedForm.medianMs, agreement: row.agreement })),
+  };
+  $("benchlive").value = JSON.stringify(text, null, 2);
+  publish({ kind: "bench", bench: { n: 128, queries: 400, seed: 7 } }, { ok: true, verdict: "measured", result: text });
+});
+
+fetch("results/node-bench.json").then((response) => response.json()).then((data) => {
+  $("benchnode").value = JSON.stringify({
+    n: data.n,
+    queries: data.queries,
+    absError: data.absError,
+    flopsIncremental: data.flopsIncremental,
+    flopsRecompute: data.flopsRecompute,
+    preprocessFlops: data.preprocessFlops,
+    stateBytes: data.stateBytes,
+    medianRatioIncrementalOverRecompute: data.medianRatio,
+    incrementalMedianMs: data.incrementalMedianMs,
+    incrementalMadMs: data.incrementalMadMs,
+    recomputeMedianMs: data.recomputeMedianMs,
+    recomputeMadMs: data.recomputeMadMs,
+    q1MedianRatio: data.q1.medianRatio,
+    q1Flops: { incremental: data.q1.flopsIncremental, recompute: data.q1.flopsRecompute },
+    reading: "Ratio below 1 means incremental was faster on that Node run only. Q=1 does more flops because preprocess is included.",
+  }, null, 2);
+}).catch(() => { $("benchnode").value = "Archived bench JSON was not fetched."; });
+
+const params = new URLSearchParams(location.search);
+if (params.get("doc")) {
+  try {
+    const raw = JSON.parse(params.get("doc"));
+    const checked = validateExperiment(raw);
+    if (!checked.ok) $("status").textContent = checked.errors.join("; ");
+    else {
+      const file = new File([JSON.stringify(raw)], "permalink.json", { type: "application/json" });
+      const transfer = new DataTransfer();
+      transfer.items.add(file);
+      $("import-json").files = transfer.files;
+      $("import-json").dispatchEvent(new Event("change"));
+    }
+  } catch { $("status").textContent = "Permalink JSON was not valid."; }
+} else if (params.get("preset")) applyPreset(params.get("preset"));
+else compute();
+if (params.get("demo") && !params.get("doc") && !params.get("preset")) show(params.get("demo"));
+if (params.get("bench") === "1") $("run-bench").click();
+</script>
+</body>
+</html>

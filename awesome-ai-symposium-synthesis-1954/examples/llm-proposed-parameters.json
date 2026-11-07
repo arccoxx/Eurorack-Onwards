@@ -1,0 +1,13 @@
+{
+  "kind": "mixer",
+  "seed": 7,
+  "mixer": {
+    "x": [0.2, -0.4, 0.6],
+    "w": [0.8, -0.2, 0.1],
+    "bias": 0.05,
+    "quantStep": 0.05,
+    "voltsPerUnit": 5,
+    "railVolts": 10,
+    "shaper": "tanh"
+  }
+}

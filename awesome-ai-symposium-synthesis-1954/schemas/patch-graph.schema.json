@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/arccoxx/Eurorack-Onwards/awesome-ai-symposium-synthesis-1954/schemas/patch-graph.schema.json",
+  "title": "Educational patch graph",
+  "type": "object",
+  "required": ["version", "nodes", "cables"],
+  "properties": {
+    "version": {"const": 1},
+    "label": {"type": "string"},
+    "analogy": {"type": "boolean"},
+    "notPhysicalTimeTravel": {"type": "boolean"},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind"],
+        "properties": {
+          "id": {"type": "string"},
+          "kind": {"enum": ["cv-source", "vca", "summer", "waveshaper", "constant", "feedback-attenuator", "clamp"]},
+          "params": {"type": "object"}
+        }
+      }
+    },
+    "cables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "label": {"type": "string"}
+        }
+      }
+    }
+  },
+  "description": "Whitelist of educational modules. Unknown kinds are rejected. The graph is data, not a program."
+}

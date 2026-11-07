@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="t d">
+<title id="t">Same input, reference beside patch</title>
+<desc id="d">One control vector feeds a float64 reference and a patch model with optional knob quantization, voltage scaling, and a rail.</desc>
+<rect width="960" height="320" rx="18" fill="#101620"/>
+<text x="32" y="42" fill="#f2f6ff" font-family="Georgia, serif" font-size="28">Same input, two readings</text>
+<rect x="40" y="80" width="250" height="180" rx="12" fill="#1a2433"/>
+<rect x="670" y="80" width="250" height="180" rx="12" fill="#1a2433"/>
+<rect x="355" y="110" width="250" height="120" rx="12" fill="#243044"/>
+<text x="70" y="130" fill="#5ee0d0" font-family="Georgia, serif" font-size="24">Reference</text>
+<text x="70" y="180" fill="#f2f6ff" font-family="ui-monospace, monospace" font-size="16">tanh(w.x + b)</text>
+<text x="690" y="130" fill="#ffb020" font-family="Georgia, serif" font-size="24">Patch</text>
+<text x="690" y="180" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="16">quant, +/-5 V, rail</text>
+<text x="390" y="170" fill="#f2f6ff" font-family="ui-sans-serif, sans-serif" font-size="18">shared x, w, b</text>
+<path d="M290 170 H355 M605 170 H670" stroke="#9ad0ff" stroke-width="3"/>
+<text x="40" y="292" fill="#c5d0e0" font-family="ui-sans-serif, sans-serif" font-size="16">Residual is the absolute gap on that shared input.</text>
+</svg>
