@@ -1,148 +1,100 @@
 # Quantums of Signal is Quantum-Compute
-## Deepened Working Document: Readout/Collapse, Continuum Energy States, Notation, and Reinterpreted Concepts
+## Living Document: Exact Reinterpretation, Carrier Insight, Anti-Patterns, and Parallelism
 
-**Status:** Living notes. Distinguishes a signal-processing interpretation of “quantums of signal” from physical quantum computing. Speculative extensions are explicitly marked. Version: 2026-11-07 (deepened).
-
----
-
-## 1. Core Theory (Supported Core)
-
-The supported core is ordinary signal processing plus feedback:
-
-- Quantization is a nonlinear operator \(Q\) that maps a continuous amplitude to a discrete set of levels.
-- When \(Q\) (or any other nonlinearity) is placed inside a recirculating path, the loop possesses fixed points / attractors that the circulating voltage can settle into.
-- Those attractors are measurable classical states. Their structure is analogous to consistency conditions that appear in CTC literature and in residual/inductive methods, but the objects themselves remain classical voltages.
-
-This core is supported by standard quantization theory, documented modular practice, and continuous-field models (mean-field, neural-field). Art-history and synthesist notebook evidence is suggestive: many mid-20th-century electronic-music and cybernetics notebooks treat voltage steps, discrete scales, and feedback as primary compositional objects, and frequently group simultaneous operations inside parentheses or boxes. The pattern is consistent with the operator view but does not constitute a finished formalism.
-
-**Parentheses and simultaneity**  
-Parentheses in \(f(g(x))\) or \((a + b)\cdot c\) mark the boundary of a single compound map applied as one step. In a continuous signal path the same grouping is realized by a module or sub-patch whose internal voltages exist simultaneously. The link to “quantum simultaneity” is structural analogy only.
-
-**Framework status**  
-This is a **framework**. It reinterprets selected quantum-computing terms as ordinary signal-processing operations. It does not claim to implement physical quantum computing.
+**Status:** Living notes. Distinguishes a signal-processing interpretation of “quantums of signal” from physical quantum computing. Earlier mistakes are retained and labeled as anti-patterns. Version: 2026-11-07 (audit pass).
 
 ---
 
-## 2. Theory of Quantization and Continuous Quantization
+## Exact Matching Reinterpretation (Settled)
 
-Standard quantization maps continuous amplitude onto discrete levels. Continuous versions already used in synthesis:
+The framework we settled on is:
 
-1. Soft / probabilistic quantization (smooth transition whose steepness is voltage-controlled).
-2. Hierarchical or multi-rate quantization (nested or parallel \(\Delta\)).
-3. Residual quantization (explicit continuous error \(x - Q(x)\) fed back or used as modulation).
+A continuous circulating voltage (or multi-path interference pattern) is the energy state of the path. Quantization is a nonlinear operator \(Q\) that forces that continuous trajectory onto a discrete grid. When \(Q\) (or any other nonlinearity) sits inside a recirculating path, the loop possesses fixed points / attractors. Those attractors are measurable classical states. Their structure is analogous to consistency conditions that appear in CTC literature and residual methods, but the objects themselves remain classical voltages.
 
-These remain classical. A soft quantizer + residual feedback can lock to a discrete grid yet still respond continuously to external drive.
+This is the exact matching reinterpretation: quantum-computing vocabulary (superposition analogue = parallel continuous paths before a mix point; collapse analogue = nonlinear snap onto discrete levels; logical state = stable attractor) is a design language for classical signal processing, not a claim of physical quantum computation.
 
----
-
-## 3. Readout / Wave-Collapse Interpretation (Signal Framework)
-
-In physical quantum mechanics, measuring a state collapses the superposition onto one outcome. Under the signal-quantization framework the analogous process is:
-
-- A continuous circulating voltage (or multi-path interference pattern) exists inside the loop. The energy state is the voltage trajectory itself; it has no discrete start or end inside the medium.
-- At the moment of readout (sampling, hard quantization, or a threshold), the continuous trajectory is forced onto one of the discrete levels allowed by \(Q\).
-- The “collapse” is the nonlinear snap of the continuous residual onto the grid. There is no physical wave-function; there is a continuous energy trajectory that is discretized by the operator.
-
-Because the underlying path is continuous, additional synthesis stages “intervene” (etymologically: come between) by inserting themselves into the ongoing energy path. Each intervention adds procedural depth before the next readout. Time synthesis (variable delay, recirculation, time-varying parameters) means the trajectory that is read is already the result of prior interventions.
-
-**Observability of synthesis**  
-A continuous recirculating medium can be observed without destroying the circulation (high-impedance tap, OLED scope, or buffered probe). Full hard quantization or sampling does force a discrete outcome. This distinction is already visible on modules that display a live waveform while the signal continues to circulate. Tagged for later research: systematic comparison of non-destructive taps versus hard readout across different loop depths.
-
-**Energy state inside the lines**  
-The circulating voltage is an energy state of the path. Feedback gain, residual amplitude, and delay length determine how much energy is stored before a readout or nonlinear snap. Modules with small numeric displays (4-character or similar) typically show a parameter, a quantized value, or a short diagnostic; they make an internal continuous or discrete quantity legible. They are not themselves the collapse event.
+**Why continuous quantization is feasible:** Soft / probabilistic (sigmoid or error-function transition whose steepness is voltage-controlled), hierarchical / multi-rate (nested or parallel \(\Delta\)), and residual (explicit continuous error \(x - Q(x)\) fed back) are already used in synthesis and noise-shaping. They do not create new physical quanta; they let the patch designer control how sharply the signal is forced onto discrete levels while remaining inside a continuous medium.
 
 ---
 
-## 4. Other Concepts Reinterpreted in the Synthesis Domain
+## Carrier Insight
 
-- **Wave readout as transceiver / transducer** — any jack that extracts a voltage from a circulating path is a transducer. The continuous medium remains; the extracted signal is a projection of the energy state.
-- **Energy building in the lines** — feedback gain, residual amplitude, and delay length set the stored energy before snap or readout.
-- **4-letter / 4-character motifs** — genetic codons are a biological discrete alphabet. Time signatures and small integers in music are discrete choices of lattice. Under this framework both are examples of selecting a discrete subset from a continuum. No deeper identity is claimed.
-- **Multiples of 4 in mixers** — most often reflect bit depth, channel count, or convenient digital word length, not genetic coding.
+A stable signal that travels through a material that conducts it without permanently altering the material is a **carrier**. The medium supports the trajectory; the trajectory does not rewrite the medium’s constitutive properties on the timescale of interest. This is the condition that lets a delay loop, waveguide, or transmission line hold a circulating state that can be observed non-destructively (high-impedance tap, OLED scope, buffered probe) while the circulation continues.
 
-These remain classical signal operations.
+The opposite case — a medium that is rewritten by the signal — is residual write-back or adaptive filtering. Both are useful; they are not the same object.
 
 ---
 
-## 5. Notation, Diagrams, and Multiway Congruencies
+## Readout Problem (Intra-System vs Inter-System)
 
-Supported observation: synthesist and cybernetics notebooks frequently use parentheses, boxes, and parallel lines to indicate operations that occur simultaneously. Chemical-bond notation is a 2-D example of the same impulse—showing relations that are concurrent rather than sequential. Higher-dimensional scratch pads for machine intelligence are an open design question; the measurable version is a continuous medium (delay network, multi-path interference, or analog computer) in which multiple interactions exist at the same moment.
+- **Intra-system activity:** the continuous circulating voltage exists whether or not it is observed. A high-impedance tap or scope can make it legible without destroying the circulation.
+- **Inter-system sampling:** a hard quantizer or sampler forces the continuous residual onto a discrete level. That event changes the state that subsequent stages see. The sampled value becomes part of the system that generated it.
+- **Music as rest (Cage):** if the circulating state is silence (zero residual, gain below one, or a null in the interference pattern), there is nothing to read. The question “is it there at all?” is answered by whether the loop is above or below the stability edge, not by whether a display is attached.
 
-No single historical source was found that “reveals the synthesis truth” in finished form. The practical order of principles that emerges from the literature and modular practice is:
-
-1. Continuous medium (voltage, delay, waveguide).
-2. Nonlinear operator (quantizer, soft clipper, multiplier).
-3. Feedback / residual that enforces consistency.
-4. Readout that samples the resulting attractor.
-
-Didactic series and “true order” of application remain open; the sequence above is the one currently supported by modular practice and control literature.
+There is no “after the fact” nature required. A readout that remains online as part of the system simply functions; it does not need a separate measurement step that collapses a state that existed independently of the measurement.
 
 ---
 
-## 6. Music Theory (Separated)
+## Anti-Patterns (Retained Mistakes)
 
-Musical lattices (circle of fifths, major/minor, tonic, intervals) are one historically privileged choice of discrete levels inside a quantizer. They can be used for computation in the limited sense that any chosen discrete subset can be used as a state space. Harmonic versus disharmonic, major versus minor, can be treated as labels on attractors, but they do not automatically supply a general computational model.
+These earlier claims are labeled so they can be recognized as paths that do not hold under the settled framework:
 
-Because the mapping is not uniquely quantum and risks confusion, the detailed exploration of music-theory-as-computation is placed in a separate document and repository (`musical-computation`). Continuous quantization can still “harmonize” a residual by snapping it onto a musical lattice; that remains a special case of the general quantizer-inside-feedback technique.
+- **Anti-pattern:** A Eurorack patch implements physical quantum computing or Deutsch’s fixed-point condition in a way that yields PSPACE.  
+  **Correction:** It produces classical attractors. The analogy is structural; the computational power is classical.
 
----
+- **Anti-pattern:** Continuous quantization creates new physical quanta or solves open problems by embedding a CTC.  
+  **Correction:** Soft / residual / hierarchical quantization are continuous approximations to a discrete operator. They remain classical.
 
-## 7. Number Cheat-Sheet (Updated)
+- **Anti-pattern:** Musical lattices automatically supply a general computational model.  
+  **Correction:** They are one historically privileged choice of discrete levels. Detailed exploration is separated into `musical-computation`.
 
-| Number / Constant | Role | Where it appears | Technique / Patch link |
-|-------------------|------|------------------|------------------------|
-| \(\Delta\) | Quantization step | Quantizer | Discrete grid size |
-| 12 | Semitones | V/oct quantizers | Musical lattice |
-| 1 V/oct | Pitch scaling | Eurorack CV | Level → frequency |
-| \(c\) | Wave speed | Nunez \(\omega \approx ck\) | Propagation in delay/waveguide |
-| \(k, \omega\) | Wave number, frequency | Dispersion | Spatial/temporal scale |
-| 2, 3, 4, 5 | Small integers | Scales, channel counts, bit depth | Lattice choice or word length |
-| Soft-clip steepness | Snap strength | Soft quantizer | How hard the attractor locks |
-| Delay \(\tau\) | Loop length | Feedback | Recurrence time |
-| Residual gain | Correction strength | Error feedback | Pull toward discrete levels |
-| 42 | Cultural / computational anecdote | Hitchhiker’s Guide; cube-sum stories | Not a synthesis constant; treat as external reference only |
-
-No evidence was found that mystical numbers in general “point to unpublished science” in a systematic way. Specific computational anecdotes (long integers whose cubes sum to 42, etc.) are external to the signal framework. A complete “synthesis value cheat sheet” that explains all such numbers was not located online in finished form.
+- **Anti-pattern:** Mystical numbers (42, 666, etc.) systematically point to unpublished synthesis science.  
+  **Correction:** Powers of two have a hard binary reason. Musical fractions (1 V/oct, 12 semitones) are the numbers that appear in patches. External anecdotes are external.
 
 ---
 
-## 8. Quantum Error Control Reinterpreted (unchanged in substance)
+## Parallelism and Channel Counts
 
-- Logical state → stable attractor of the loop.
-- Error → residual \(x - Q(x)\).
-- Error correction → residual feedback onto the grid.
-- Stabilizer → secondary check that the primary loop remains on the grid.
+Mixers and modules frequently appear in powers of two (2, 4, 8, 16, 32, 64) or small integers (3, 5) because those numbers match binary word length, convenient channel counts, or musical lattices. The parallelism is in the signal path: multiple independent voltages exist simultaneously and can be mixed, delayed, or quantized in parallel. It is not parallelism across unreachable time domains. A 64-channel mixer is 64 simultaneous continuous trajectories, not 64 parallel universes.
 
-These are classical control operations.
+CTC-style fixed-point consistency can be asked of a single loop (the circulating state after one pass equals the state that produced it). It does not automatically grant superluminal or multiversal computation.
 
 ---
 
-## 9. Evidence in Synthesis History and Modular Practice
+## Quantum of Signals / Quantum of Space / Quantum Time
 
-- Analog-computer and control literature on quantization limit cycles and residual methods.
-- Neural-field and brain-wave models already using continuous fields.
-- Modular practice: pitch quantizers, feedback delays, residual/self-patching, ERD/TOAD-style continuous ODE engines, live waveform displays.
-- Notebook practice: parentheses and parallel groupings for simultaneous operations.
-- Techniques used for non-musical work (machine intelligence analogues): residual-driven reweighting, multi-path interference for concurrent interaction, continuous observability via high-Z taps or scopes, and discrete attractors as stable state spaces.
+- **Quantum of signals:** the discrete levels produced by \(Q\). Already in the framework.
+- **Quantum of space the signals live in:** the ambient harmonic lattice (integer multiples of a base frequency, or any chosen discrete subset). Modules are operations on that shared lattice, not lattices themselves.
+- **Quantum time:** a continuous free-running phase (VCO or recirculating delay) versus a discrete clock. The continuous case lets phase be any real number at any instant. No multiversal effects are generated; the trajectory is still one classical voltage evolving in one medium.
 
-No single site, book, or channel was found that presents a finished “synthesis truth.” The operations above are already in everyday use.
+Imaginary or unreachable signals are those outside the noise floor or outside the basin of the current attractor. They are not ontologically separate; they are trajectories the present system does not reach under its current parameters.
 
 ---
 
-## 10. Open Measurements
+## Intelligence and Agentic Formalism (Pointers)
 
-1. Delay-loop pitch drop.
-2. Quantizer lock inside the loop.
-3. Soft vs hard clipper.
-4. Interference from unequal delays.
-5. Residual-driven comparison.
-6. Continuous observability (scope or high-Z tap) while the loop continues.
-7. Soft-quantizer snap under time-varying delay.
+No document titled “intelligence field” with a “decide under a score” formula was located in the public repos under that exact phrasing. Closest published formulations:
+- Legg & Hutter universal intelligence (expected performance across environments, Solomonoff prior + Bellman equations).
+- Process-based views that treat intelligence as attempt–revise rather than final output.
+
+A field-theoretic construction in which agents emerge as local structures whose score is a residual functional remains an open design question. It is compatible with residual-driven loops but is not yet standardized.
 
 ---
 
-## 11. Summary
+## Language Circuits and Computers Not Designed for How We Use Them
 
-The supported core remains a classical framework: quantization operator inside feedback produces measurable discrete attractors. Readout is the nonlinear snap of a continuous trajectory onto the grid. Continuous media allow observation without destruction of the circulation. Music-theory lattices are a special case of discrete level selection and are treated in a separate document. Reinterpreted quantum terms are a design vocabulary for robust classical attractors. Claims beyond classical attractors remain speculative.
+The language-circuit work (prime-to-letter mappings, Diophantine constraints as continuous operators) and the observation that digital computers use one-way directional networking on shared media both point to the same gap: the substrate supports continuous concurrent interaction, but the dominant programming model imposes sequential discrete steps. Eurorack and analog computing already operate in the concurrent continuous regime. The language-circuit idea is one possible discrete operator that could be placed inside that regime; it has not been shown to generate symbolic programs spontaneously from pure continuum.
+
+---
+
+## Tutoring Expectations (Updated)
+
+Stage one remains the entry: one oscillator, one delay, feedback. Stretch the delay; pitch drops. Subsequent stages add a VCA (threshold), parallel delays (interference), and a quantizer (snap). The quantization framework is the interpretive layer applied after the behavior is verified, not a prerequisite. Verbal prediction is sufficient for the conceptual half; ear calibration requires sound. Five-minute bursts on VCV Rack or hardware are enough when screen time is limited.
+
+---
+
+## Summary
+
+The exact matching reinterpretation is a classical framework: continuous energy state, nonlinear operator \(Q\), residual, readout snap. Continuous quantization is feasible as soft / residual / hierarchical approximation. The carrier insight separates non-destructive observation from residual write-back. Parallelism is simultaneous trajectories in one medium. CTC-style consistency is a fixed-point condition on a loop, not automatic multiversal computation. Earlier overclaims are retained as labeled anti-patterns. The living document and the milestone spine remain the primary references.
 
 Document lives in Eurorack-Onwards and true-quantum-compute.
