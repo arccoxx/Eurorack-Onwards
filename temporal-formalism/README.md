@@ -53,3 +53,18 @@ Source and math: [continuum-evolution `temporal-formalism/stage2b-supplement`](h
 
 Status: specs and simulations only; no hardware built.
 <!-- END stage2b modules -->
+
+<!-- BEGIN t3u modules (append-only) -->
+## t3u modules: VCO-as-clock, harmonization tester, chaos bit source, lens modules
+
+[`vco_synthlang_module_spec.md`](vco_synthlang_module_spec.md)
+
+![VCO](figures/t3u_vco_as_clock.png)
+
+- **Addressless phase-register VCO:** the capacitor voltage is the phase; hold mode drifts I_leak/(CΔV).
+- **Harmonization tester:** a mixer plus coupling knob K. LEDs show beat vs lock, and the ratio switch walks across the Arnold tongues (p:q phase locking = Aidan's "cross-modulating harmonization").
+- **Logistic r = 4 bit source:** one Gray-coded bit per clock. A coupled pair syncs for ε ∈ (1/4, 3/4).
+- **Lens modules:** forward plus adjoint (time-reversed) path. Feedback cables need a delay.
+
+Status: specs and simulations only; no hardware built. Analysis lives in `continuum-evolution/temporal-formalism/stage2b-supplement/throughline/`.
+<!-- END t3u modules -->
