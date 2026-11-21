@@ -20,3 +20,9 @@ Public teaching pages for a matrix mixer, a lattice fixed point, a finite prefix
 The Node timing archived with the tests is a CPU comparison of an incremental dot-product update against a full recompute on one structured task. It is not a universal optimum and not a hardware benchmark. Details and gaps: `META-HANDOFF.md`.
 
 <!-- SYMPOSIUM-SYNTHESIS-1954-APPEND-END -->
+<!-- TEMPORAL-FORMALISM-APPEND-BEGIN -->
+
+## Temporal Formalism: Turing Machine and LFSR (additive)
+
+The Music Thing Turing Machine module is a 16-bit looping shift register with a probabilistic bit flip. Simulated: locked loop period 16, double lock period 32. An LFSR is residual feedback over GF(2) with maximal period 65535. Doc, sim and figure: [temporal-formalism/](temporal-formalism/README.md). Source stage: continuum-evolution `temporal-formalism/stage5-bits/`.
+<!-- TEMPORAL-FORMALISM-APPEND-END -->
