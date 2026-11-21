@@ -26,3 +26,30 @@ The name does not mean a Turing machine in Alan Turing's sense; the designer say
 - Clock dividers are the counter-bit version: bit k toggles every 2^k clocks (the ruler sequence, CTZ(n)).
 
 Sources: Music Thing Modular, *17 things to know about Turing Machine*; Golomb, *Shift Register Sequences* (1967); Marsaglia (2003), *Xorshift RNGs*, J. Stat. Softw. 8(14). The full stage, with 18 claims, 8 figures and 27 sources, is in continuum-evolution `temporal-formalism/stage5-bits/`.
+
+<!-- BEGIN stage2b modules (append-only, from continuum-evolution temporal-formalism/stage2b-supplement @ 5d909b6) -->
+## Stage 2b: FM / spread-spectrum clock and tick/tock modules
+
+Source and math: [continuum-evolution `temporal-formalism/stage2b-supplement`](https://github.com/arccoxx/continuum-evolution/tree/main/temporal-formalism/stage2b-supplement). Figures: `figures/stage2b_fm_clock_scheduler.png`, `figures/stage2b_tik_tok.png`.
+
+**1. FM clock (SSC-style) module.**
+- A VCO clock whose rate is f(t) = f₀(1 + δ·m(t)), where m is a CV input (triangle = spread-spectrum clocking).
+- An output gate fires each time ∫f dt crosses an integer, so gate density = f(t).
+- On real chips, PCIe SSC is a 0.5% down-spread at ~33 kHz and cuts the EMI peak (sim: −5.2 dB fundamental, −9.8 dB 5th harmonic).
+- Musically, small δ with slow m gives humanized swing; large δ gives accelerando/ritardando.
+
+**2. Tick/tock (bipolar) clock.**
+- Two outputs: tick (+) on even edges and tock (−) on odd edges, plus a "beat" knob that moves tock away from the 50% point.
+- In beat, there is a single line at 2× the rate. Out of beat, a half-rate subharmonic appears, which is the escapement's "out of beat" sound.
+- The bipolar sum has no DC, so it can drive AC-coupled inputs.
+
+**3. Quadrature (analytic) clock.**
+- cos and sin outputs (a Hilbert pair).
+- The sin output is the honest "tok": the phasor's negative-frequency partner, carrying the same information shifted by 90°.
+
+**4. Proportional-share trigger distributor.**
+- Routes one clock to N outputs in ratio w₁:…:w_N.
+- Stride mode is deterministic, with share error ≤ 1 trigger. Lottery mode is random, with error ~√n (Waldspurger).
+
+Status: specs and simulations only; no hardware built.
+<!-- END stage2b modules -->
